@@ -1,0 +1,14 @@
+docs_dir: doc/book
+site_dir: doc/html
+pages:
+    - index.md
+    - Intro: intro.md
+    - Reference:
+      - 'Routing': routing.md
+      - 'Default Services': services.md
+    - Migration:
+      - 'Version 2 to Version 3': migration/v2-to-v3.md
+site_name: zend-mvc-i18n
+site_description: Zend\Mvc\I18n
+repo_url: 'https://github.com/zendframework/zend-mvc-i18n'
+copyright: 'Copyright (c) 2016 <a href="http://www.zend.com/">Zend Technologies USA Inc.</a>'
