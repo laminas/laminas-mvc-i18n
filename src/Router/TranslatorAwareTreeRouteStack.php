@@ -7,6 +7,7 @@
 
 namespace Zend\Mvc\I18n\Router;
 
+use Traversable;
 use Zend\I18n\Translator\TranslatorInterface as Translator;
 use Zend\I18n\Translator\TranslatorAwareInterface;
 use Zend\Router\Exception;
