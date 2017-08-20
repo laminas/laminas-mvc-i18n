@@ -8,7 +8,7 @@
 namespace ZendTest\Mvc\I18n\Router;
 
 use Interop\Container\ContainerInterface;
-use PHPUnit_Framework_TestCase as TestCase;
+use PHPUnit\Framework\TestCase;
 use Zend\I18n\Translator\TranslatorInterface;
 use Zend\Mvc\I18n\Router\HttpRouterDelegatorFactory;
 use Zend\Mvc\I18n\Router\TranslatorAwareTreeRouteStack;
