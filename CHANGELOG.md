@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file, in reverse chronological order by release.
 
-## 1.1.0 - TBD
+## 1.1.0 - 2018-05-01
 
 ### Added
 
@@ -21,24 +21,6 @@ All notable changes to this project will be documented in this file, in reverse 
 ### Removed
 
 - [#17](https://github.com/zendframework/zend-mvc-i18n/pull/17) removes support for HHVM.
-
-### Fixed
-
-- Nothing.
-
-## 1.0.1 - TBD
-
-### Added
-
-- Nothing.
-
-### Deprecated
-
-- Nothing.
-
-### Removed
-
-- Nothing.
 
 ### Fixed
 
