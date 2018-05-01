@@ -40,7 +40,7 @@ class Translator implements
      */
     public function __call($method, array $args)
     {
-        if (!method_exists($this->translator, $method)) {
+        if (! method_exists($this->translator, $method)) {
             throw new Exception\BadMethodCallException(sprintf(
                 'Unable to call method "%s"; does not exist in translator',
                 $method

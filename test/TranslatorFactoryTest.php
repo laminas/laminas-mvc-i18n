@@ -10,7 +10,7 @@ namespace ZendTest\Mvc\I18n;
 use ArrayObject;
 use Interop\Container\ContainerInterface;
 use Locale;
-use PHPUnit_Framework_TestCase as TestCase;
+use PHPUnit\Framework\TestCase;
 use Prophecy\Argument;
 use Zend\I18n\Translator\LoaderPluginManager;
 use Zend\I18n\Translator\Translator as I18nTranslator;

@@ -7,7 +7,7 @@
 
 namespace ZendTest\Mvc\I18n\Router;
 
-use PHPUnit_Framework_TestCase as TestCase;
+use PHPUnit\Framework\TestCase;
 use Zend\I18n\Translator\Translator;
 use Zend\I18n\Translator\TranslatorAwareInterface;
 use Zend\Http\Request as Request;
@@ -98,7 +98,7 @@ class TranslatorAwareTreeRouteStackTest extends TestCase
         $translator = new Translator();
         $request    = new Request();
 
-        $route = $this->getMock(RouteInterface::class);
+        $route = $this->createMock(RouteInterface::class);
         $route->expects($this->once())
               ->method('match')
               ->with(
@@ -118,7 +118,7 @@ class TranslatorAwareTreeRouteStackTest extends TestCase
         $translator = new Translator();
         $uri        = new HttpUri();
 
-        $route = $this->getMock(RouteInterface::class);
+        $route = $this->createMock(RouteInterface::class);
         $route->expects($this->once())
               ->method('assemble')
               ->with(
