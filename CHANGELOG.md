@@ -6,6 +6,12 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ### Added
 
+### Added
+
+- [#17](https://github.com/zendframework/zend-mvc-i18n/pull/17) adds support for PHP 7.1 and 7.2.
+
+### Changed
+
 - Nothing.
 
 ### Deprecated
@@ -14,7 +20,7 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ### Removed
 
-- Nothing.
+- [#17](https://github.com/zendframework/zend-mvc-i18n/pull/17) removes support for HHVM.
 
 ### Fixed
 
