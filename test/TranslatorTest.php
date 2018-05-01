@@ -7,7 +7,7 @@
 
 namespace ZendTest\Mvc\I18n;
 
-use PHPUnit_Framework_TestCase as TestCase;
+use PHPUnit\Framework\TestCase;
 use Zend\I18n\Translator\Translator as I18nTranslator;
 use Zend\I18n\Translator\TranslatorInterface;
 use Zend\Mvc\I18n\Translator;
@@ -16,7 +16,7 @@ class TranslatorTest extends TestCase
 {
     public function setUp()
     {
-        $this->i18nTranslator = $this->getMock(I18nTranslator::class);
+        $this->i18nTranslator = $this->createMock(I18nTranslator::class);
         $this->translator = new Translator($this->i18nTranslator);
     }
 

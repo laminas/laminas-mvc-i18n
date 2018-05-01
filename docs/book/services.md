@@ -25,7 +25,7 @@ As an example, calling:
 $translator->translate($message);
 ```
 
-will return `$message`, and 
+will return `$message`, and
 
 ```php
 $translator->translatePlural($singular, $plural, $number);
