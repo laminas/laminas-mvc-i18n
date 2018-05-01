@@ -1,7 +1,7 @@
 # Routing
 
-[zend-router](https://zendframework.github.io/zend-router) provides routing
-capabilities for [zend-mvc](https://zendframework.github.io/zend-mvc/). In
+[zend-router](https://docs.zendframework.com/zend-router) provides routing
+capabilities for [zend-mvc](https://docs.zendframework.com/zend-mvc/). In
 version 2, these capabilities also included an opt-in feature of translatable
 route segments.
 
@@ -45,7 +45,7 @@ The `translator_text_domain`, when not present, defaults to `default`.
 
 ## Translatable route segments
 
-As a refresher, [segment routes](https://zendframework.github.io/zend-router/routing/#zend92mvc92router92http92segment)
+As a refresher, [segment routes](https://docs.zendframework.com/zend-router/routing/#zend92mvc92router92http92segment)
 allow you to define a combination of literal characters and placeholders;
 placeholders are denoted by `:name` notation within the definition.
 

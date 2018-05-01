@@ -1,7 +1,7 @@
 # Introduction
 
 Zend Framework 2 offered functionality for integrating internationalization
-capabilities provided by [zend-i18n](https://zendframework.github.io/zend-i18n/)
+capabilities provided by [zend-i18n](https://docs.zendframework.com/zend-i18n/)
 into MVC applications. This support includes:
 
 - registration of an `MvcTranslator` service by default.
@@ -19,7 +19,7 @@ for your applications.
 
 Additionally, because it bridges multiple `TranslatorInterface` implementations,
 and provides i18n-capable routing, it can be useful with non-zend-mvc
-applications such as [zend-expressive](https://zendframework.github.io/zend-expressive).
+applications such as [zend-expressive](https://docs.zendframework.com/zend-expressive).
 
 ## Installation
 
@@ -29,7 +29,7 @@ Basic installation is via composer:
 $ composer require zendframework/zend-mvc-i18n
 ```
 
-Assuming you are using the [component installer](https://zendframework.github.io/zend-component-installer),
+Assuming you are using the [component installer](https://docs.zendframework.com/zend-component-installer),
 doing so will automatically enable the component in your application.
 
 If you are not using the component installer, you will need to add the entry:
@@ -55,7 +55,7 @@ files:
 >
 > to your `config/config.php` class, assuming you are already using
 > [expressive-config-manager](https://github.com/mtymek/expressive-config-manager).
-> 
+>
 > If you are not, add a new global `config/autoload/` file with the following contents:
 >
 > ```php

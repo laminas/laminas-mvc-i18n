@@ -1,13 +1,21 @@
 {
     "name": "zendframework/zend-mvc-i18n",
-    "description": " ",
+    "description": "Integration between zend-mvc and zend-i18n",
     "license": "BSD-3-Clause",
     "keywords": [
-        "zf2",
+        "zf",
+        "zendframework",
         "mvc",
         "i18n"
     ],
-    "homepage": "https://github.com/zendframework/zend-mvc-i18n",
+    "support": {
+        "docs": "https://docs.zendframework.com/zend-mvc-i18n/",
+        "issues": "https://github.com/zendframework/zend-mvc-i18n/issues",
+        "source": "https://github.com/zendframework/zend-mvc-i18n",
+        "rss": "https://github.com/zendframework/zend-mvc-i18n/releases.atom",
+        "chat": "https://zendframework-slack.herokuapp.com",
+        "forum": "https://discourse.zendframework.com/c/questions/components"
+    },
     "require": {
         "php": "^5.6 || ^7.0",
         "container-interop/container-interop": "^1.1",
@@ -22,11 +30,11 @@
         "zendframework/zend-cache": "^2.6.1",
         "zendframework/zend-coding-standard": "~1.0.0"
     },
-    "suggest": {
-        "zendframework/zend-cache": "To enable caching of translation strings"
-    },
     "conflict": {
         "zendframework/zend-mvc": "<3.0.0"
+    },
+    "suggest": {
+        "zendframework/zend-cache": "To enable caching of translation strings"
     },
     "autoload": {
         "psr-4": {
@@ -38,9 +46,13 @@
             "ZendTest\\Mvc\\I18n\\": "test/"
         }
     },
+    "config": {
+        "sort-packages": true
+    },
     "extra": {
         "branch-alias": {
-            "dev-master": "1.0-dev"
+            "dev-master": "1.0.x-dev",
+            "dev-develop": "1.1.x-dev"
         },
         "zf": {
             "component": "Zend\\Mvc\\I18n",
@@ -53,8 +65,8 @@
             "@test"
         ],
         "cs-check": "phpcs",
-        "cs-fix": "phpcbf fix -v",
-        "test": "phpunit",
-        "test-coverage": "phpunit --coverage-clover clover.xml"
+        "cs-fix": "phpcbf",
+        "test": "phpunit --colors=always",
+        "test-coverage": "phpunit --colors=always --coverage-clover clover.xml"
     }
 }
