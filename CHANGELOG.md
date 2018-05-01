@@ -24,7 +24,7 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ### Fixed
 
-- Nothing.
+- [#10](https://github.com/zendframework/zend-mvc-i18n/pull/10) adds a missing import to `Traversable` in the `TranslatorAwareTreeRouteStack` class file.
 
 ## 1.0.0 - 2016-05-31
 
