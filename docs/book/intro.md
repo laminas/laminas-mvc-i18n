@@ -54,7 +54,7 @@ files:
 > ```
 >
 > to your `config/config.php` class, assuming you are already using
-> [expressive-config-manager](https://github.com/mtymek/expressive-config-manager).
+> [zend-config-aggregator](https://docs.zendframework.com/zend-config-aggregator/).
 >
 > If you are not, add a new global `config/autoload/` file with the following contents:
 >
