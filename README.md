@@ -21,7 +21,7 @@ two components.
 $ composer require zendframework/zend-mvc-i18n
 ```
 
-Assuming you are using the [component installer](https://docs.zendframework.com/zend-component-installer],
+Assuming you are using the [component installer](https://docs.zendframework.com/zend-component-installer/),
 doing so will enable the component in your application, allowing you to
 immediately start developing console applications via your MVC. If you are not,
 please read the [introduction](https://docs.zendframework.com/zend-mvc-i18n/intro/)
@@ -34,6 +34,6 @@ zend-mvc releases prior to v3, as it is not compatible.
 
 ## Migrating from zend-mvc v2 i18n features to zend-mvc-i18n
 
-Please see the [migration guide](http://docs.zendframework.com/zend-mvc-i18n/migration/v2-to-v3/)
+Please see the [migration guide](https://docs.zendframework.com/zend-mvc-i18n/migration/v2-to-v3/)
 for details on how to migrate your existing zend-mvc console functionality to
 the features exposed by this component.
