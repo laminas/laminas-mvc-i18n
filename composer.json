@@ -31,6 +31,7 @@
         "zendframework/zend-coding-standard": "~1.0.0"
     },
     "conflict": {
+        "phpspec/prophecy": "<1.8.0",
         "zendframework/zend-mvc": "<3.0.0"
     },
     "suggest": {
