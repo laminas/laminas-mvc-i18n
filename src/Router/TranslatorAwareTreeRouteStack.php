@@ -1,19 +1,20 @@
 <?php
+
 /**
- * @link      http://github.com/zendframework/zend-mvc-i18n for the canonical source repository
- * @copyright Copyright (c) 2005-2016 Zend Technologies USA Inc. (http://www.zend.com)
- * @license   http://framework.zend.com/license/new-bsd New BSD License
+ * @see       https://github.com/laminas/laminas-mvc-i18n for the canonical source repository
+ * @copyright https://github.com/laminas/laminas-mvc-i18n/blob/master/COPYRIGHT.md
+ * @license   https://github.com/laminas/laminas-mvc-i18n/blob/master/LICENSE.md New BSD License
  */
 
-namespace Zend\Mvc\I18n\Router;
+namespace Laminas\Mvc\I18n\Router;
 
+use Laminas\I18n\Translator\TranslatorAwareInterface;
+use Laminas\I18n\Translator\TranslatorInterface as Translator;
+use Laminas\Router\Exception;
+use Laminas\Router\Http\TreeRouteStack;
+use Laminas\Router\RouteInterface;
+use Laminas\Stdlib\RequestInterface as Request;
 use Traversable;
-use Zend\I18n\Translator\TranslatorInterface as Translator;
-use Zend\I18n\Translator\TranslatorAwareInterface;
-use Zend\Router\Exception;
-use Zend\Router\Http\TreeRouteStack;
-use Zend\Router\RouteInterface;
-use Zend\Stdlib\RequestInterface as Request;
 
 /**
  * Translator aware tree route stack.

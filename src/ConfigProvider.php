@@ -1,13 +1,14 @@
 <?php
+
 /**
- * @link      http://github.com/zendframework/zend-mvc-i18n for the canonical source repository
- * @copyright Copyright (c) 2005-2016 Zend Technologies USA Inc. (http://www.zend.com)
- * @license   http://framework.zend.com/license/new-bsd New BSD License
+ * @see       https://github.com/laminas/laminas-mvc-i18n for the canonical source repository
+ * @copyright https://github.com/laminas/laminas-mvc-i18n/blob/master/COPYRIGHT.md
+ * @license   https://github.com/laminas/laminas-mvc-i18n/blob/master/LICENSE.md New BSD License
  */
 
-namespace Zend\Mvc\I18n;
+namespace Laminas\Mvc\I18n;
 
-use Zend\Router\Http\TreeRouteStack;
+use Laminas\Router\Http\TreeRouteStack;
 
 class ConfigProvider
 {
@@ -33,6 +34,9 @@ class ConfigProvider
         return [
             'aliases' => [
                 'MvcTranslator' => Translator::class,
+
+                // Legacy Zend Framework aliases
+                \Zend\Mvc\I18n\Translator::class => Translator::class,
             ],
             'delegators' => [
                 'HttpRouter' => [ Router\HttpRouterDelegatorFactory::class ],

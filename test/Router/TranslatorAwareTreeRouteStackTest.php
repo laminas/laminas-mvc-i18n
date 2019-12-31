@@ -1,19 +1,20 @@
 <?php
+
 /**
- * @link      http://github.com/zendframework/zend-mvc-i18n for the canonical source repository
- * @copyright Copyright (c) 2005-2016 Zend Technologies USA Inc. (http://www.zend.com)
- * @license   http://framework.zend.com/license/new-bsd New BSD License
+ * @see       https://github.com/laminas/laminas-mvc-i18n for the canonical source repository
+ * @copyright https://github.com/laminas/laminas-mvc-i18n/blob/master/COPYRIGHT.md
+ * @license   https://github.com/laminas/laminas-mvc-i18n/blob/master/LICENSE.md New BSD License
  */
 
-namespace ZendTest\Mvc\I18n\Router;
+namespace LaminasTest\Mvc\I18n\Router;
 
+use Laminas\Http\Request as Request;
+use Laminas\I18n\Translator\Translator;
+use Laminas\I18n\Translator\TranslatorAwareInterface;
+use Laminas\Mvc\I18n\Router\TranslatorAwareTreeRouteStack;
+use Laminas\Router\Http\RouteInterface;
+use Laminas\Uri\Http as HttpUri;
 use PHPUnit\Framework\TestCase;
-use Zend\I18n\Translator\Translator;
-use Zend\I18n\Translator\TranslatorAwareInterface;
-use Zend\Http\Request as Request;
-use Zend\Mvc\I18n\Router\TranslatorAwareTreeRouteStack;
-use Zend\Router\Http\RouteInterface;
-use Zend\Uri\Http as HttpUri;
 
 class TranslatorAwareTreeRouteStackTest extends TestCase
 {
