@@ -6,11 +6,11 @@ All notable changes to this project will be documented in this file, in reverse 
 
 First (stable) release.
 
-This component replaces the various i18n utilities in zend-mvc and zend-router,
-and provides integration between each of those components and zend-i18n.
+This component replaces the various i18n utilities in laminas-mvc and laminas-router,
+and provides integration between each of those components and laminas-i18n.
 
 While this is a stable release, please wait to use it until a v3 release of
-zend-mvc, which will remove those features, to ensure everything works together
+laminas-mvc, which will remove those features, to ensure everything works together
 as expected.
 
 ### Added

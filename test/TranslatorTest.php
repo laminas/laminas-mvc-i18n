@@ -1,16 +1,17 @@
 <?php
+
 /**
- * @link      http://github.com/zendframework/zend-mvc-i18n for the canonical source repository
- * @copyright Copyright (c) 2005-2016 Zend Technologies USA Inc. (http://www.zend.com)
- * @license   http://framework.zend.com/license/new-bsd New BSD License
+ * @see       https://github.com/laminas/laminas-mvc-i18n for the canonical source repository
+ * @copyright https://github.com/laminas/laminas-mvc-i18n/blob/master/COPYRIGHT.md
+ * @license   https://github.com/laminas/laminas-mvc-i18n/blob/master/LICENSE.md New BSD License
  */
 
-namespace ZendTest\Mvc\I18n;
+namespace LaminasTest\Mvc\I18n;
 
+use Laminas\I18n\Translator\Translator as I18nTranslator;
+use Laminas\I18n\Translator\TranslatorInterface;
+use Laminas\Mvc\I18n\Translator;
 use PHPUnit_Framework_TestCase as TestCase;
-use Zend\I18n\Translator\Translator as I18nTranslator;
-use Zend\I18n\Translator\TranslatorInterface;
-use Zend\Mvc\I18n\Translator;
 
 class TranslatorTest extends TestCase
 {

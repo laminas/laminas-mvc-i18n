@@ -1,21 +1,22 @@
 <?php
+
 /**
- * @link      http://github.com/zendframework/zend-mvc-i18n for the canonical source repository
- * @copyright Copyright (c) 2005-2016 Zend Technologies USA Inc. (http://www.zend.com)
- * @license   http://framework.zend.com/license/new-bsd New BSD License
+ * @see       https://github.com/laminas/laminas-mvc-i18n for the canonical source repository
+ * @copyright https://github.com/laminas/laminas-mvc-i18n/blob/master/COPYRIGHT.md
+ * @license   https://github.com/laminas/laminas-mvc-i18n/blob/master/LICENSE.md New BSD License
  */
 
-namespace Zend\Mvc\I18n;
+namespace Laminas\Mvc\I18n;
 
 use Interop\Container\ContainerInterface;
+use Laminas\I18n\Translator\Translator as I18nTranslator;
+use Laminas\I18n\Translator\TranslatorInterface;
+use Laminas\Mvc\I18n\DummyTranslator;
+use Laminas\Mvc\I18n\Translator as MvcTranslator;
+use Laminas\ServiceManager\FactoryInterface;
+use Laminas\ServiceManager\ServiceLocatorInterface;
+use Laminas\ServiceManager\ServiceManager;
 use Traversable;
-use Zend\I18n\Translator\Translator as I18nTranslator;
-use Zend\I18n\Translator\TranslatorInterface;
-use Zend\Mvc\I18n\DummyTranslator;
-use Zend\Mvc\I18n\Translator as MvcTranslator;
-use Zend\ServiceManager\FactoryInterface;
-use Zend\ServiceManager\ServiceLocatorInterface;
-use Zend\ServiceManager\ServiceManager;
 
 /**
  * Overrides the translator factory from the i18n component in order to
@@ -43,7 +44,7 @@ class TranslatorFactory implements FactoryInterface
     /**
      * Create and return MvcTranslator instance
      *
-     * For use with zend-servicemanager v2; proxies to __invoke().
+     * For use with laminas-servicemanager v2; proxies to __invoke().
      *
      * @param ServiceLocatorInterface $container
      * @return MvcTranslator
