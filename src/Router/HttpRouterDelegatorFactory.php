@@ -1,16 +1,17 @@
 <?php
+
 /**
- * @link      http://github.com/zendframework/zend-mvc-i18n for the canonical source repository
- * @copyright Copyright (c) 2005-2016 Zend Technologies USA Inc. (http://www.zend.com)
- * @license   http://framework.zend.com/license/new-bsd New BSD License
+ * @see       https://github.com/laminas/laminas-mvc-i18n for the canonical source repository
+ * @copyright https://github.com/laminas/laminas-mvc-i18n/blob/master/COPYRIGHT.md
+ * @license   https://github.com/laminas/laminas-mvc-i18n/blob/master/LICENSE.md New BSD License
  */
 
-namespace Zend\Mvc\I18n\Router;
+namespace Laminas\Mvc\I18n\Router;
 
 use Interop\Container\ContainerInterface;
-use Zend\I18n\Translator\TranslatorInterface;
-use Zend\ServiceManager\DelegatorFactoryInterface;
-use Zend\ServiceManager\ServiceLocatorInterface;
+use Laminas\I18n\Translator\TranslatorInterface;
+use Laminas\ServiceManager\DelegatorFactoryInterface;
+use Laminas\ServiceManager\ServiceLocatorInterface;
 
 class HttpRouterDelegatorFactory implements DelegatorFactoryInterface
 {
@@ -29,7 +30,7 @@ class HttpRouterDelegatorFactory implements DelegatorFactoryInterface
      * @param string $name
      * @param callable $callback
      * @param null|arry $options
-     * @return \Zend\Router\RouteStackInterface|TranslatorAwareTreeRouteStack
+     * @return \Laminas\Router\RouteStackInterface|TranslatorAwareTreeRouteStack
      */
     public function __invoke(ContainerInterface $container, $name, callable $callback, array $options = null)
     {
@@ -55,13 +56,13 @@ class HttpRouterDelegatorFactory implements DelegatorFactoryInterface
     }
 
     /**
-     * zend-servicemanager v2 compabibility
+     * laminas-servicemanager v2 compabibility
      *
      * @param ServiceLocatorInterface $container
      * @param string $name
      * @param string $requestedName
      * @param callable $callback
-     * @return \Zend\Router\RouteStackInterface|TranslatorAwareTreeRouteStack
+     * @return \Laminas\Router\RouteStackInterface|TranslatorAwareTreeRouteStack
      */
     public function createDelegatorWithName(ServiceLocatorInterface $container, $name, $requestedName, $callback)
     {

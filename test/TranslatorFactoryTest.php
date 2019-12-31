@@ -1,24 +1,25 @@
 <?php
+
 /**
- * @link      http://github.com/zendframework/zend-mvc-i18n for the canonical source repository
- * @copyright Copyright (c) 2005-2016 Zend Technologies USA Inc. (http://www.zend.com)
- * @license   http://framework.zend.com/license/new-bsd New BSD License
+ * @see       https://github.com/laminas/laminas-mvc-i18n for the canonical source repository
+ * @copyright https://github.com/laminas/laminas-mvc-i18n/blob/master/COPYRIGHT.md
+ * @license   https://github.com/laminas/laminas-mvc-i18n/blob/master/LICENSE.md New BSD License
  */
 
-namespace ZendTest\Mvc\I18n;
+namespace LaminasTest\Mvc\I18n;
 
 use ArrayObject;
 use Interop\Container\ContainerInterface;
+use Laminas\I18n\Translator\LoaderPluginManager;
+use Laminas\I18n\Translator\Translator as I18nTranslator;
+use Laminas\I18n\Translator\TranslatorInterface;
+use Laminas\Mvc\I18n\DummyTranslator;
+use Laminas\Mvc\I18n\Translator as MvcTranslator;
+use Laminas\Mvc\I18n\TranslatorFactory;
+use Laminas\ServiceManager\ServiceManager;
 use Locale;
 use PHPUnit_Framework_TestCase as TestCase;
 use Prophecy\Argument;
-use Zend\I18n\Translator\LoaderPluginManager;
-use Zend\I18n\Translator\Translator as I18nTranslator;
-use Zend\I18n\Translator\TranslatorInterface;
-use Zend\Mvc\I18n\DummyTranslator;
-use Zend\Mvc\I18n\Translator as MvcTranslator;
-use Zend\Mvc\I18n\TranslatorFactory;
-use Zend\ServiceManager\ServiceManager;
 
 class TranslatorFactoryTest extends TestCase
 {
@@ -54,6 +55,7 @@ class TranslatorFactoryTest extends TestCase
     public function testFactoryReturnsMvcTranslatorDecoratingDefaultTranslatorWhenNoConfigPresent($expected)
     {
         $this->container->has(TranslatorInterface::class)->willReturn(false);
+        $this->container->has(\Zend\I18n\Translator\TranslatorInterface::class)->willReturn(false);
         $this->container->has('config')->willReturn(false);
 
         $factory = new TranslatorFactory();
@@ -69,6 +71,7 @@ class TranslatorFactoryTest extends TestCase
     public function testFactoryReturnsMvcDecoratorDecoratingDefaultTranslatorWhenNoTranslatorConfigPresent($expected)
     {
         $this->container->has(TranslatorInterface::class)->willReturn(false);
+        $this->container->has(\Zend\I18n\Translator\TranslatorInterface::class)->willReturn(false);
         $this->container->has('config')->willReturn(true);
         $this->container->get('config')->willReturn([]);
 
@@ -82,6 +85,7 @@ class TranslatorFactoryTest extends TestCase
     public function testFactoryReturnsMvcDecoratorDecoratingDummyTranslatorWhenTranslatorConfigIsFalse()
     {
         $this->container->has(TranslatorInterface::class)->willReturn(false);
+        $this->container->has(\Zend\I18n\Translator\TranslatorInterface::class)->willReturn(false);
         $this->container->has('config')->willReturn(true);
         $this->container->get('config')->willReturn(['translator' => false]);
 
@@ -98,6 +102,7 @@ class TranslatorFactoryTest extends TestCase
     public function testFactoryReturnsMvcDecoratorDecoratingDefaultTranslatorWhenEmptyTranslatorConfigPresent($expected)
     {
         $this->container->has(TranslatorInterface::class)->willReturn(false);
+        $this->container->has(\Zend\I18n\Translator\TranslatorInterface::class)->willReturn(false);
         $this->container->has('config')->willReturn(true);
         $this->container->get('config')->willReturn(['translator' => []]);
 
@@ -134,6 +139,7 @@ class TranslatorFactoryTest extends TestCase
         $expected
     ) {
         $this->container->has(TranslatorInterface::class)->willReturn(false);
+        $this->container->has(\Zend\I18n\Translator\TranslatorInterface::class)->willReturn(false);
         $this->container->has('config')->willReturn(true);
         $this->container->get('config')->willReturn($config);
 
@@ -165,6 +171,7 @@ class TranslatorFactoryTest extends TestCase
     public function testFactoryReturnsConfiguredTranslatorWhenValidConfigIsPresent($config)
     {
         $this->container->has(TranslatorInterface::class)->willReturn(false);
+        $this->container->has(\Zend\I18n\Translator\TranslatorInterface::class)->willReturn(false);
         $this->container->has('config')->willReturn(true);
         $this->container->get('config')->willReturn(['translator' => $config]);
         $this->container->has('TranslatorPluginManager')->willReturn(false);
@@ -193,6 +200,7 @@ class TranslatorFactoryTest extends TestCase
         $config
     ) {
         $this->container->has(TranslatorInterface::class)->willReturn(false);
+        $this->container->has(\Zend\I18n\Translator\TranslatorInterface::class)->willReturn(false);
         $this->container->has('config')->willReturn(true);
         $this->container->get('config')->willReturn(['translator' => $config]);
         $this->container->has('TranslatorPluginManager')->willReturn(true);
