@@ -1,50 +1,20 @@
 {
-    "name": "zendframework/zend-mvc-i18n",
-    "description": "Integration between zend-mvc and zend-i18n",
+    "name": "laminas/laminas-mvc-i18n",
+    "description": "Integration between laminas-mvc and laminas-i18n",
     "license": "BSD-3-Clause",
     "keywords": [
-        "zf",
-        "zendframework",
+        "laminas",
         "mvc",
         "i18n"
     ],
+    "homepage": "https://laminas.dev",
     "support": {
-        "docs": "https://docs.zendframework.com/zend-mvc-i18n/",
-        "issues": "https://github.com/zendframework/zend-mvc-i18n/issues",
-        "source": "https://github.com/zendframework/zend-mvc-i18n",
-        "rss": "https://github.com/zendframework/zend-mvc-i18n/releases.atom",
-        "chat": "https://zendframework-slack.herokuapp.com",
-        "forum": "https://discourse.zendframework.com/c/questions/components"
-    },
-    "require": {
-        "php": "^5.6 || ^7.0",
-        "container-interop/container-interop": "^1.1",
-        "zendframework/zend-i18n": "^2.7",
-        "zendframework/zend-router": "^3.0",
-        "zendframework/zend-servicemanager": "^2.7.10 || ^3.0.3",
-        "zendframework/zend-stdlib": "^2.7.6 || ^3.0",
-        "zendframework/zend-validator": "^2.6"
-    },
-    "require-dev": {
-        "phpunit/phpunit": "^5.7.27 || ^6.5.8 || ^7.1.5",
-        "zendframework/zend-cache": "^2.6.1",
-        "zendframework/zend-coding-standard": "~1.0.0"
-    },
-    "conflict": {
-        "zendframework/zend-mvc": "<3.0.0"
-    },
-    "suggest": {
-        "zendframework/zend-cache": "To enable caching of translation strings"
-    },
-    "autoload": {
-        "psr-4": {
-            "Zend\\Mvc\\I18n\\": "src/"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "ZendTest\\Mvc\\I18n\\": "test/"
-        }
+        "docs": "https://docs.laminas.dev/laminas-mvc-i18n/",
+        "issues": "https://github.com/laminas/laminas-mvc-i18n/issues",
+        "source": "https://github.com/laminas/laminas-mvc-i18n",
+        "rss": "https://github.com/laminas/laminas-mvc-i18n/releases.atom",
+        "chat": "https://laminas.dev/chat",
+        "forum": "https://discourse.laminas.dev"
     },
     "config": {
         "sort-packages": true
@@ -54,9 +24,40 @@
             "dev-master": "1.1.x-dev",
             "dev-develop": "1.2.x-dev"
         },
-        "zf": {
-            "component": "Zend\\Mvc\\I18n",
-            "config-provider": "Zend\\Mvc\\I18n\\ConfigProvider"
+        "laminas": {
+            "component": "Laminas\\Mvc\\I18n",
+            "config-provider": "Laminas\\Mvc\\I18n\\ConfigProvider"
+        }
+    },
+    "require": {
+        "php": "^5.6 || ^7.0",
+        "container-interop/container-interop": "^1.1",
+        "laminas/laminas-i18n": "^2.7",
+        "laminas/laminas-router": "^3.0",
+        "laminas/laminas-servicemanager": "^2.7.10 || ^3.0.3",
+        "laminas/laminas-stdlib": "^2.7.6 || ^3.0",
+        "laminas/laminas-validator": "^2.6",
+        "laminas/laminas-zendframework-bridge": "^1.0"
+    },
+    "require-dev": {
+        "laminas/laminas-cache": "^2.6.1",
+        "laminas/laminas-coding-standard": "~1.0.0",
+        "phpunit/phpunit": "^5.7.27 || ^6.5.8 || ^7.1.5"
+    },
+    "conflict": {
+        "laminas/laminas-mvc": "<3.0.0"
+    },
+    "suggest": {
+        "laminas/laminas-cache": "To enable caching of translation strings"
+    },
+    "autoload": {
+        "psr-4": {
+            "Laminas\\Mvc\\I18n\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "LaminasTest\\Mvc\\I18n\\": "test/"
         }
     },
     "scripts": {
@@ -68,5 +69,8 @@
         "cs-fix": "phpcbf",
         "test": "phpunit --colors=always",
         "test-coverage": "phpunit --colors=always --coverage-clover clover.xml"
+    },
+    "replace": {
+        "zendframework/zend-mvc-i18n": "self.version"
     }
 }
