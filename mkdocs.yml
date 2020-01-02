@@ -11,3 +11,6 @@ nav:
 site_name: laminas-mvc-i18n
 site_description: 'Integration between laminas-mvc and laminas-i18n'
 repo_url: 'https://github.com/laminas/laminas-mvc-i18n'
+extra:
+    project: Mvc
+    project_url: 'https://docs.laminas.dev'
