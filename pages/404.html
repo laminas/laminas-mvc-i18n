@@ -6,10 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Integration between laminas-mvc and laminas-i18n">  
-    <link rel="canonical" href="https://docs.laminas.dev/services/">
     <link rel="shortcut icon" href="/img/trademark-laminas-foundation-rgb.svg">
 
-    <title>Default Services - laminas-mvc-i18n - Laminas Docs</title>
+    <title>laminas-mvc-i18n - Laminas Docs</title>
 
     <link rel="stylesheet" href="/css/styles.css">
 </head>
@@ -59,7 +58,7 @@
                     
     <div class="subnavigation hidden-print">
         <h4 class="subnavigation__title">
-            <a href="..">laminas-mvc-i18n</a>
+            <a href="../.">laminas-mvc-i18n</a>
         </h4>
 
         <h5 class="subnavigation__subtitle">Table of Contents</h5>
@@ -98,8 +97,8 @@
 
                                     
                                         
-    <li class="subnavigation__list-item subnavigation__list-item--active">
-        <a href="./" class="subnavigation__link">Default Services</a>
+    <li class="subnavigation__list-item ">
+        <a href="../services/" class="subnavigation__link">Default Services</a>
     </li>
 
                                     
@@ -191,165 +190,21 @@
         <div class="row">
             <div class="col-md-2 col-sm-12">
                 
-    
-
-    
-    
-        <div class="toc">
-            <h6 class="toc__headline">On this page</h6>
-            <ul class="toc__list">
-                
-                    <li class="toc__entry">
-                        <a href="#translator" class="toc__link">Translator</a>
-                    </li>
-                
-                    <li class="toc__entry">
-                        <a href="#dummytranslator" class="toc__link">DummyTranslator</a>
-                    </li>
-                
-                    <li class="toc__entry">
-                        <a href="#mvctranslator-and-translatorfactory" class="toc__link">MvcTranslator and TranslatorFactory</a>
-                    </li>
-                
-                    <li class="toc__entry">
-                        <a href="#httprouterdelegatorfactory" class="toc__link">HttpRouterDelegatorFactory</a>
-                    </li>
-                
-            </ul>
-        </div>
-    
-
             </div>
             <div class="col-md-7 col-sm-12 content" role="main" data-spy="scroll" data-target=".toc">
                 
-                    <nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
-        
-            <li class="breadcrumb-item"><a href="">Overview</a></li>
 
-            
-                <li class="breadcrumb-item"><a href="..">laminas-mvc-i18n</a></li>
+<h1 class="content__title">404</h1>
+<blockquote>
+    <h3>Something went wrong!</h3>
+    <p>
+        We're sorry, but the page you are looking for does not exist.
+    </p>
+</blockquote>
 
-                
-                    
-                        
-                        
-                            <li class="breadcrumb-item">Reference</li>
-                        
-                    
-                
-
-                <li class="breadcrumb-item active" aria-current="page">Default Services</li>
-            
-        
-    </ol>
-</nav>
+<a href="../." class="btn btn-default" role="button">Go to homepage</a>
 
 
-
-
-
-
-    
-    
-        <h2 class="chapter__headline">Reference</h2>
-    
-
-    <h1 id="services-defined">Services Defined</h1>
-<p>laminas-mvc-i18n defines the following services and related factories.</p>
-<h2 id="translator">Translator</h2>
-<p><code>Laminas\Mvc\I18n\Translator</code> implements each of
-<code>Laminas\I18n\Translator\TranslatorInterface</code> (from
-laminas-i18n) and implements <code>Laminas\Validator\TranslatorInterface</code> (from
-laminas-validator), by decorating an <code>Laminas\I18n\Translator\TranslatorInterface</code>
-instance (typically a <code>Laminas\I18n\Translator\Translator</code> instance).</p>
-<p>It exists to allow bridging multiple translation interfaces, allowing it to be
-used in multiple contexts.</p>
-<h2 id="dummytranslator">DummyTranslator</h2>
-<p><code>Laminas\Mvc\I18n\DummyTranslator</code> is an implementation of
-<code>Laminas\I18n\Translator\TranslatorInterface</code> that essentially returns the
-arguments provided to it unchanged.</p>
-<p>As an example, calling:</p>
-<pre class=codehilite><code class=language-php>$translator-&gt;translate($message);</code></pre>
-<p>will return <code>$message</code>, and</p>
-<pre class=codehilite><code class=language-php>$translator-&gt;translatePlural($singular, $plural, $number);</code></pre>
-<p>will return <code>$singular</code> when <code>$number</code> is <code>1</code>, and <code>$plural</code> otherwise.</p>
-<h2 id="mvctranslator-and-translatorfactory">MvcTranslator and TranslatorFactory</h2>
-<p>The component defines the <code>MvcTranslator</code> service, which is aliased to the
-<code>Laminas\Mvc\I18n\Translator</code> class, and uses <code>Laminas\Mvc\I18n\TranslatorFactory</code> to
-create and return the instance.</p>
-<p>The point of the service is to ensure that a <code>Laminas\Mvc\I18n\Translator</code> instance
-is returned, which enables usage across multiple contexts (see the <a href="#translator">Translator
-section</a>, above).</p>
-<p>As such, you should typically use the <code>MvcTranslator</code> service when injecting
-your own classes with a translator instance:</p>
-<pre class=codehilite><code class=language-php>function ($container) {
-    return new YourServiceClass($container-&gt;get('MvcTranslator'));
-}</code></pre>
-<p>The <code>TranslatorFactory</code> will do the following:</p>
-<ul>
-<li>If a <code>Laminas\I18n\Translator\TranslatorInterface</code> service is registered, it will
-  be retrieved and decorated with a <code>Laminas\Mvc\I18n\Translator</code> instance.</li>
-<li>If the "config" service is defined in the container, has a "translator" key,
-  but the value of that key is boolean false, it returns a
-  <code>Laminas\Mvc\I18n\Translator</code> instance wrapping a <code>DummyTranslator</code> instance.</li>
-<li>If the "config" service is defined in the container, has a "translator" key,
-  and value is an array or <code>Traversable</code> set of configuration, it passes that to
-  <code>Laminas\I18n\Translator\Translator::factory()</code> to create and return an instance.
-  That instance is then decorated with a <code>Laminas\Mvc\I18n\Translator</code>.</li>
-</ul>
-<h2 id="httprouterdelegatorfactory">HttpRouterDelegatorFactory</h2>
-<p>The component registers a delegator factory on each of the <code>HttpRouter</code> and
-<code>Laminas\Router\Http\TreeRouteStack</code> services. The delegator factory checks to see
-if the instance created is a <code>Laminas\Mvc\I18n\Router\TranslatorAwareTreeRouteStack</code>,
-and, if so:</p>
-<ul>
-<li>if the <code>MvcTranslator</code> service is present, it will inject it as the translator
-  before returning it.</li>
-<li>if the <code>Laminas\I18n\Translator\TranslatorInterface</code> service is present, it will
-  inject it as the translator before returning it.</li>
-<li>otherwise, it disables translation in the returned instance.</li>
-</ul>
-
-
-
-
-    <nav>
-    <ul class="page-nav hidden-print">
-
-        
-        <li class="page-nav__item">
-            
-                <a rel="prev" class="page-nav__link page-nav__link--prev" href="../routing/">
-                    <i class="fa fa-chevron-left"></i> Previous
-                </a>
-            
-        </li>
-
-        
-        <li class="page-nav__item">
-            
-                <a rel="next" class="page-nav__link page-nav__link--next" href="../migration/v2-to-v3/">
-                    Next <i class="fa fa-chevron-right"></i>
-                </a>
-            
-        </li>
-    </ul>
-</nav>
-
-
-
-
-    <div class="help-wanted">
-        <p>
-            Found a mistake or want to contribute to the documentation?
-            <a href="https://github.com/laminas/laminas-mvc-i18n/edit/master/docs/book/services.md" target="_blank" class="help-wanted__link">
-                Edit this page on GitHub!
-            </a>
-        </p>
-    </div>
-
-                
             </div>
             <div class="col-md-3 col-sm-12 sidebar">
                 
@@ -364,7 +219,7 @@ and, if so:</p>
                     
     <div class="subnavigation hidden-print">
         <h4 class="subnavigation__title">
-            <a href="..">laminas-mvc-i18n</a>
+            <a href="../.">laminas-mvc-i18n</a>
         </h4>
 
         <h5 class="subnavigation__subtitle">Table of Contents</h5>
@@ -403,8 +258,8 @@ and, if so:</p>
 
                                     
                                         
-    <li class="subnavigation__list-item subnavigation__list-item--active">
-        <a href="./" class="subnavigation__link">Default Services</a>
+    <li class="subnavigation__list-item ">
+        <a href="../services/" class="subnavigation__link">Default Services</a>
     </li>
 
                                     

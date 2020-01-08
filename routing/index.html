@@ -20,7 +20,7 @@
     <div class="container">
         
         <a class="logo-link navbar-brand offset-md-2" href="https://getlaminas.org/" data-tooltip data-placement="bottom" title="Go to the Laminas homepage">
-            <img src="../img/laminas-foundation-white.svg" height="28" alt="Lamnias">
+            <img src="../img/laminas-foundation-white.svg" height="28" alt="Laminas">
         </a>
         <a class="navbar-title" href="https://docs.laminas.dev/" data-tooltip data-placement="bottom" title="Go to the Laminas Documentation">
             Documentation
@@ -36,13 +36,17 @@
             
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a href="https://getlaminas.org/about" class="nav-link">About</a>
-                </li>
-                <li class="nav-item">
-                    <a href="https://getlaminas.org/blog" class="nav-link">Blog</a>
-                </li>
-                <li class="nav-item">
-                    <a href="https://docs.laminas.dev" class="nav-link">All Docs</a>
+                    <div class="dropdown">
+                        <a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false">
+                            All Docs
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="https://docs.laminas.dev/components">Components</a>
+                            <a class="dropdown-item" href="https://docs.mezzio.dev/">Mezzio</a>
+                            <a class="dropdown-item" href="https://api-tools.getlaminas.org/docs">API Tools</a>
+                            <a class="dropdown-item" href="https://docs.laminas.dev/mvc">MVC</a>
+                        </div>
+                    </div>
                 </li>
                 <li class="nav-item">
                     <a href="https://getlaminas.org/participate" class="nav-link">Community</a>
@@ -262,15 +266,14 @@ router. Additionally, you may want to indicate the translation locale and/or
 text domain to use for translatable route segments.</p>
 <p>The following is a configuration example that could be specified in a module or
 at the application level:</p>
-<p> <div class=codehilite><pre><span></span><span class=x>use Laminas\Mvc\I18n\Router\TranslatorAwareTreeRouteStack;</span>
+<pre class=codehilite><code class=language-php>use Laminas\Mvc\I18n\Router\TranslatorAwareTreeRouteStack;
 
-<span class=x>return [</span>
-<span class=x>    &#39;router&#39; =&gt; [</span>
-<span class=x>        &#39;router_class&#39;           =&gt; TranslatorAwareTreeRouteStack::class,</span>
-<span class=x>        &#39;translator_text_domain&#39; =&gt; &#39;routing&#39;,</span>
-<span class=x>    ],</span>
-<span class=x>];</span>
-</pre></div></p>
+return [
+    'router' =&gt; [
+        'router_class'           =&gt; TranslatorAwareTreeRouteStack::class,
+        'translator_text_domain' =&gt; 'routing',
+    ],
+];</code></pre>
 <p>The above would configure and return a <code>TranslatorAwareTreeRouteStack</code> instance
 when the router is requested. The instance would be configured to use the
 <code>routing</code> text domain, and injected with either the <code>MvcTranslator</code> or
@@ -286,14 +289,12 @@ placeholders are denoted by <code>:name</code> notation within the definition.</
 <p>When matching, the translator uses its locale and the text domain configured to
 translate translation keys in the route definition prior to attempting a match.</p>
 <p>As an example, consider the following route definition:</p>
-<p> <div class=codehilite><pre><span></span>/{shopping_cart}/{products}/:productId
-</pre></div></p>
+<pre class=codehilite><code>/{shopping_cart}/{products}/:productId</code></pre>
 <p>The above defines two translatable segments, <code>shopping_cart</code> and <code>products</code>.
 When attempting to match, these keys are passed to the translator. If, for
 example, the locale evaluates to <code>de-DE</code>, these might become <code>einkaufswagen</code> and
 'produkte`, respectively, evaluating to:</p>
-<p> <div class=codehilite><pre><span></span>/einkaufswagen/produkte/:productId
-</pre></div></p>
+<pre class=codehilite><code>/einkaufswagen/produkte/:productId</code></pre>
 <p>This will then be what the router attempts to match against.</p>
 
 
@@ -445,9 +446,10 @@ example, the locale evaluates to <code>de-DE</code>, these might become <code>ei
             <div class="col-md-7 offset-md-2">
                 <h5>Laminas</h5>
                 <ul>
-                    <li>Laminas Project <a href="https://getlaminas.org/">Components and MVC for Enterprise Applications</a></li>
-                    <li>Mezzio <a href="https://docs.mezzio.dev/">PSR-15 Middleware in Minutes</a></li>
-                    <li>Laminas API Tools: <a href="https://api-tools.getlaminas.org/">Build RESTful APIs in minutes</a></li>
+                    <li>Laminas Project <a href="https://getlaminas.org/">The new foundation for the community-supported, open source continuation of Zend Framework</a></li>
+                    <li>Laminas Components and MVC <a href="https://docs.laminas.dev/">Components and MVC for enterprise applications</a></li>
+                    <li>Mezzio <a href="https://docs.mezzio.dev/">PSR-15 middleware in minutes</a></li>
+                    <li>Laminas API Tools <a href="https://api-tools.getlaminas.org/">Build RESTful APIs in minutes</a></li>
                 </ul>
             </div>
         </div>
@@ -484,7 +486,7 @@ example, the locale evaluates to <code>de-DE</code>, these might become <code>ei
                 <h4 class="footer__headline">License</h4>
                 <p>
                     Code licensed under <a
-                        href="https://github.com/laminas/laminas-mvc-i18n//blob/master/LICENSE.md">BSD 3-Clause</a>.
+                        href="https://github.com/laminas/laminas-mvc-i18n/blob/master/LICENSE.md">BSD 3-Clause</a>.
                 </p>
             </div>
 
@@ -493,8 +495,8 @@ example, the locale evaluates to <code>de-DE</code>, these might become <code>ei
                 <h4 class="footer__headline">Copyright</h4>
                 <p>
                     <!--Built with love by the Laminas team with the help of our
-                    <a href="https://github.com/laminas/laminas-mvc-i18n//graphs/contributors">contributors</a>.<br>-->
-                    &copy; 2019-2019 by <a href="https://getlaminas.org/">The Laminas Project</a>.
+                    <a href="https://github.com/laminas/laminas-mvc-i18n/graphs/contributors">contributors</a>.<br>-->
+                    &copy; 2019-2020 by <a href="https://getlaminas.org/">The Laminas Project</a>.
                 </p>
             </div>
         </div>
