@@ -57,7 +57,7 @@ translate translation keys in the route definition prior to attempting a match.
 
 As an example, consider the following route definition:
 
-```
+```text
 /{shopping_cart}/{products}/:productId
 ```
 
@@ -66,7 +66,7 @@ When attempting to match, these keys are passed to the translator. If, for
 example, the locale evaluates to `de-DE`, these might become `einkaufswagen` and
 'produkte`, respectively, evaluating to:
 
-```
+```text
 /einkaufswagen/produkte/:productId
 ```
 
