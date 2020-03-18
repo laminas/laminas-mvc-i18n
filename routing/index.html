@@ -348,12 +348,12 @@ placeholders are denoted by <code>:name</code> notation within the definition.</
 <p>When matching, the translator uses its locale and the text domain configured to
 translate translation keys in the route definition prior to attempting a match.</p>
 <p>As an example, consider the following route definition:</p>
-<pre class=codehilite><code>/{shopping_cart}/{products}/:productId</code></pre>
+<pre class=codehilite><code class=language-text>/{shopping_cart}/{products}/:productId</code></pre>
 <p>The above defines two translatable segments, <code>shopping_cart</code> and <code>products</code>.
 When attempting to match, these keys are passed to the translator. If, for
 example, the locale evaluates to <code>de-DE</code>, these might become <code>einkaufswagen</code> and
 'produkte`, respectively, evaluating to:</p>
-<pre class=codehilite><code>/einkaufswagen/produkte/:productId</code></pre>
+<pre class=codehilite><code class=language-text>/einkaufswagen/produkte/:productId</code></pre>
 <p>This will then be what the router attempts to match against.</p>
 
 
