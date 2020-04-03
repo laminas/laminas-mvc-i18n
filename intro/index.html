@@ -319,11 +319,13 @@ and provides i18n-capable routing, it can be useful with non-laminas-mvc
 applications such as <a href="https://docs.mezzio.dev/mezzio">mezzio</a>.</p>
 <h2 id="installation">Installation</h2>
 <p>Basic installation is via composer:</p>
-<pre class=codehilite><code class=language-bash>$ composer require laminas/laminas-mvc-i18n</code></pre>
+<pre class="highlight"><code class="language-bash">$ composer require laminas/laminas-mvc-i18n</code></pre>
+
 <p>Assuming you are using the <a href="https://docs.laminas.dev/laminas-component-installer">component installer</a>,
 doing so will automatically enable the component in your application.</p>
 <p>If you are not using the component installer, you will need to add the entry:</p>
-<pre class=codehilite><code class=language-php>'Laminas\Mvc\I18n'</code></pre>
+<pre class="highlight"><code class="language-php">'Laminas\Mvc\I18n'</code></pre>
+
 <p>to your list of active modules. This is usually provided in one of the following
 files:</p>
 <ul>
@@ -334,19 +336,17 @@ files:</p>
 <h3>Manually enabling with mezzio</h3>
 <p>If you are not using the component-installer with mezzio, you will
 need to add the entry:</p>
-<pre class="codehilite"><code class="language-php">
-\Laminas\Mvc\I18n\ConfigProvider::class
-</code></pre>
+<pre class="highlight"><code class="language-php">\Laminas\Mvc\I18n\ConfigProvider::class</code></pre>
+
 <p>to your <code>config/config.php</code> class, assuming you are already using
 <a href="https://docs.laminas.dev/laminas-config-aggregator/">laminas-config-aggregator</a>.</p>
 <p>If you are not, add a new global <code>config/autoload/</code> file with the following contents:</p>
-<pre class="codehilite"><code class="language-php">
-&lt;?php
+<pre class="highlight"><code class="language-php">&lt;?php
 use Laminas\Mvc\I18n\ConfigProvider;
 
 $provider = new ConfigProvider();
-return $provider();
-</code></pre>
+return $provider();</code></pre>
+
 </blockquote>
 <h2 id="migration">Migration</h2>
 <p>In order to separate the i18n integration features from laminas-mvc, we made a few

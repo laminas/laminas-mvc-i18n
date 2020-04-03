@@ -329,9 +329,11 @@ used in multiple contexts.</p>
 <code>Laminas\I18n\Translator\TranslatorInterface</code> that essentially returns the
 arguments provided to it unchanged.</p>
 <p>As an example, calling:</p>
-<pre class=codehilite><code class=language-php>$translator-&gt;translate($message);</code></pre>
+<pre class="highlight"><code class="language-php">$translator-&gt;translate($message);</code></pre>
+
 <p>will return <code>$message</code>, and</p>
-<pre class=codehilite><code class=language-php>$translator-&gt;translatePlural($singular, $plural, $number);</code></pre>
+<pre class="highlight"><code class="language-php">$translator-&gt;translatePlural($singular, $plural, $number);</code></pre>
+
 <p>will return <code>$singular</code> when <code>$number</code> is <code>1</code>, and <code>$plural</code> otherwise.</p>
 <h2 id="mvctranslator-and-translatorfactory">MvcTranslator and TranslatorFactory</h2>
 <p>The component defines the <code>MvcTranslator</code> service, which is aliased to the
@@ -342,9 +344,10 @@ is returned, which enables usage across multiple contexts (see the <a href="#tra
 section</a>, above).</p>
 <p>As such, you should typically use the <code>MvcTranslator</code> service when injecting
 your own classes with a translator instance:</p>
-<pre class=codehilite><code class=language-php>function ($container) {
+<pre class="highlight"><code class="language-php">function ($container) {
     return new YourServiceClass($container-&gt;get('MvcTranslator'));
 }</code></pre>
+
 <p>The <code>TranslatorFactory</code> will do the following:</p>
 <ul>
 <li>If a <code>Laminas\I18n\Translator\TranslatorInterface</code> service is registered, it will
