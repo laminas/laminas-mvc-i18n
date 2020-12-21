@@ -14,10 +14,13 @@ use Laminas\Mvc\I18n\Router\HttpRouterDelegatorFactory;
 use Laminas\Mvc\I18n\Router\TranslatorAwareTreeRouteStack;
 use Laminas\ServiceManager\ServiceManager;
 use PHPUnit\Framework\TestCase;
+use Prophecy\PhpUnit\ProphecyTrait;
 
 class HttpRouterDelegatorFactoryTest extends TestCase
 {
-    public function setUp()
+    use ProphecyTrait;
+
+    public function setUp(): void
     {
         // Required, due to odd autoloading issues with prophecy that were
         // leading to an errant invalid class alias being reported.
