@@ -15,7 +15,7 @@ use PHPUnit\Framework\TestCase;
 
 class TranslatorTest extends TestCase
 {
-    public function setUp()
+    public function setUp(): void
     {
         $this->i18nTranslator = $this->createMock(I18nTranslator::class);
         $this->translator = new Translator($this->i18nTranslator);

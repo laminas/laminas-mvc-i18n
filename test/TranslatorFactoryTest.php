@@ -20,10 +20,13 @@ use Laminas\ServiceManager\ServiceManager;
 use Locale;
 use PHPUnit\Framework\TestCase;
 use Prophecy\Argument;
+use Prophecy\PhpUnit\ProphecyTrait;
 
 class TranslatorFactoryTest extends TestCase
 {
-    public function setUp()
+    use ProphecyTrait;
+
+    public function setUp(): void
     {
         $this->container = $this->prophesize(ServiceManager::class);
         $this->container->willImplement(ContainerInterface::class);
@@ -150,7 +153,7 @@ class TranslatorFactoryTest extends TestCase
         $this->assertInstanceOf($expected, $test->getTranslator());
     }
 
-    public function validTranslatorConfig()
+    public function validTranslatorConfig(): array
     {
         $locale = (Locale::getDefault() === 'en-US') ? 'de-DE' : Locale::getDefault();
         $config = [

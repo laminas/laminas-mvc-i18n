@@ -33,7 +33,7 @@ class TranslatorAwareTreeRouteStackTest extends TestCase
      */
     protected $fooRoute;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->testFilesDir = __DIR__ . '/../_files';
 
