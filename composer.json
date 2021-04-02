@@ -30,13 +30,12 @@
         "container-interop/container-interop": "^1.1",
         "laminas/laminas-i18n": "^2.11",
         "laminas/laminas-router": "^3.0",
-        "laminas/laminas-servicemanager": "^2.7.10 || ^3.0.3",
-        "laminas/laminas-stdlib": "^2.7.6 || ^3.0",
-        "laminas/laminas-validator": "^2.6",
-        "laminas/laminas-zendframework-bridge": "^1.0"
+        "laminas/laminas-servicemanager": "^3.6",
+        "laminas/laminas-stdlib": "^3.3",
+        "laminas/laminas-validator": "^2.14",
+        "laminas/laminas-zendframework-bridge": "^1.2"
     },
     "require-dev": {
-        "laminas/laminas-cache": "^2.6.1",
         "laminas/laminas-coding-standard": "~1.0.0",
         "phpspec/prophecy-phpunit": "^2.0",
         "phpunit/phpunit": "^9.5"
