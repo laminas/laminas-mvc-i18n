@@ -38,7 +38,9 @@
     "require-dev": {
         "laminas/laminas-coding-standard": "~1.0.0",
         "phpspec/prophecy-phpunit": "^2.0",
-        "phpunit/phpunit": "^9.5"
+        "phpunit/phpunit": "^9.5",
+        "psalm/plugin-phpunit": "^0.15.1",
+        "vimeo/psalm": "^4.7"
     },
     "conflict": {
         "laminas/laminas-mvc": "<3.0.0",
@@ -60,10 +62,12 @@
     "scripts": {
         "check": [
             "@cs-check",
-            "@test"
+            "@test",
+            "@static-analysis"
         ],
         "cs-check": "phpcs",
         "cs-fix": "phpcbf",
+        "static-analysis": "psalm --shepherd --stats",
         "test": "phpunit --colors=always",
         "test-coverage": "phpunit --colors=always --coverage-clover clover.xml"
     },

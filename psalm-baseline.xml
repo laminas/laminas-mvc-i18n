@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<files psalm-version="4.7.0@d4377c0baf3ffbf0b1ec6998e8d1be2a40971005">
+  <file src="src/Router/HttpRouterDelegatorFactory.php">
+    <DeprecatedInterface occurrences="1">
+      <code>HttpRouterDelegatorFactory</code>
+    </DeprecatedInterface>
+    <ImplementedParamTypeMismatch occurrences="1">
+      <code>$options</code>
+    </ImplementedParamTypeMismatch>
+    <MismatchingDocblockParamType occurrences="1">
+      <code>null|arry</code>
+    </MismatchingDocblockParamType>
+    <MixedInferredReturnType occurrences="1">
+      <code>\Laminas\Router\RouteStackInterface|TranslatorAwareTreeRouteStack</code>
+    </MixedInferredReturnType>
+    <ParamNameMismatch occurrences="1">
+      <code>$container</code>
+    </ParamNameMismatch>
+    <UndefinedDocblockClass occurrences="1">
+      <code>null|arry</code>
+    </UndefinedDocblockClass>
+  </file>
+  <file src="src/Router/TranslatorAwareTreeRouteStack.php">
+    <DocblockTypeContradiction occurrences="1">
+      <code>$flatOptions instanceof Traversable</code>
+    </DocblockTypeContradiction>
+    <ImplementedReturnTypeMismatch occurrences="1">
+      <code>RouteMatch|null</code>
+    </ImplementedReturnTypeMismatch>
+    <InvalidReturnStatement occurrences="1">
+      <code>parent::match($request, $pathOffset, $options)</code>
+    </InvalidReturnStatement>
+    <InvalidReturnType occurrences="1">
+      <code>RouteMatch|null</code>
+    </InvalidReturnType>
+    <LessSpecificImplementedReturnType occurrences="3">
+      <code>TreeRouteStack</code>
+      <code>TreeRouteStack</code>
+      <code>self</code>
+    </LessSpecificImplementedReturnType>
+    <LessSpecificReturnStatement occurrences="1">
+      <code>$instance</code>
+    </LessSpecificReturnStatement>
+    <MixedArgument occurrences="1">
+      <code>$flatOptions</code>
+    </MixedArgument>
+    <MoreSpecificImplementedParamType occurrences="1">
+      <code>$options</code>
+    </MoreSpecificImplementedParamType>
+    <MoreSpecificReturnType occurrences="1">
+      <code>self</code>
+    </MoreSpecificReturnType>
+    <PossiblyNullPropertyAssignmentValue occurrences="1">
+      <code>$translator</code>
+    </PossiblyNullPropertyAssignmentValue>
+    <PropertyNotSetInConstructor occurrences="3">
+      <code>$translator</code>
+      <code>TranslatorAwareTreeRouteStack</code>
+      <code>TranslatorAwareTreeRouteStack</code>
+    </PropertyNotSetInConstructor>
+    <RedundantCastGivenDocblockType occurrences="2">
+      <code>(bool) $enabled</code>
+      <code>(string) $textDomain</code>
+    </RedundantCastGivenDocblockType>
+    <RedundantConditionGivenDocblockType occurrences="1">
+      <code>$this-&gt;translator !== null</code>
+    </RedundantConditionGivenDocblockType>
+    <UndefinedDocblockClass occurrences="1">
+      <code>RouteMatch|null</code>
+    </UndefinedDocblockClass>
+    <UndefinedMethod occurrences="1">
+      <code>setTranslatorTextDomain</code>
+    </UndefinedMethod>
+  </file>
+  <file src="src/Translator.php">
+    <ImplementedParamTypeMismatch occurrences="1">
+      <code>$number</code>
+    </ImplementedParamTypeMismatch>
+    <InvalidScalarArgument occurrences="1">
+      <code>$number</code>
+    </InvalidScalarArgument>
+  </file>
+  <file src="src/TranslatorFactory.php">
+    <DeprecatedInterface occurrences="1">
+      <code>TranslatorFactory</code>
+    </DeprecatedInterface>
+    <MixedArgument occurrences="4">
+      <code>$config</code>
+      <code>$config['translator']</code>
+      <code>$container-&gt;get('TranslatorPluginManager')</code>
+      <code>$container-&gt;get(TranslatorInterface::class)</code>
+    </MixedArgument>
+    <MixedArrayAccess occurrences="4">
+      <code>$config['translator']</code>
+      <code>$config['translator']</code>
+      <code>$config['translator']</code>
+      <code>$config['translator']</code>
+    </MixedArrayAccess>
+    <MixedAssignment occurrences="1">
+      <code>$config</code>
+    </MixedAssignment>
+  </file>
+  <file src="test/Router/HttpRouterDelegatorFactoryTest.php">
+    <MissingClosureReturnType occurrences="4">
+      <code>function () use ($router) {&#13;</code>
+      <code>function () use ($router) {&#13;</code>
+      <code>function () use ($router) {&#13;</code>
+      <code>function () use ($router) {&#13;</code>
+    </MissingClosureReturnType>
+    <MissingReturnType occurrences="5">
+      <code>setUp</code>
+      <code>testFactoryInjectsMvcTranslatorIntoRouterWhenPresentInContainer</code>
+      <code>testFactoryInjectsTranslatorInterfaceIntoRouterWhenPresentInContainer</code>
+      <code>testFactoryReturnsRouterUntouchedIfNotATranslatorAwareTreeRouteStack</code>
+      <code>testFactoryReturnsTranslatorAwareRouterWithTranslationsDisabledWhenNoTranslatorInContainer</code>
+    </MissingReturnType>
+    <MixedArgument occurrences="4">
+      <code>$this-&gt;container-&gt;reveal()</code>
+      <code>$this-&gt;container-&gt;reveal()</code>
+      <code>$this-&gt;container-&gt;reveal()</code>
+      <code>$this-&gt;container-&gt;reveal()</code>
+    </MixedArgument>
+  </file>
+  <file src="test/Router/TranslatorAwareTreeRouteStackTest.php">
+    <MissingReturnType occurrences="7">
+      <code>setUp</code>
+      <code>testAssembleRouteWithParameterLocale</code>
+      <code>testFactoryWillInjectTextDomainIfPresent</code>
+      <code>testMatchRouteWithParameterLocale</code>
+      <code>testTranslatorAwareInterfaceImplementation</code>
+      <code>testTranslatorIsPassedThroughAssembleMethod</code>
+      <code>testTranslatorIsPassedThroughMatchMethod</code>
+    </MissingReturnType>
+    <ReservedWord occurrences="17">
+      <code>$this-&gt;assertEquals($config['translator_text_domain'], $stack-&gt;getTranslatorTextDomain())</code>
+      <code>$this-&gt;assertEquals('/de/hauptseite', $stack-&gt;assemble(['locale' =&gt; 'de'], ['name' =&gt; 'foo/index']))</code>
+      <code>$this-&gt;assertEquals('/en/homepage', $stack-&gt;assemble(['locale' =&gt; 'en'], ['name' =&gt; 'foo/index']))</code>
+      <code>$this-&gt;assertEquals('alternative', $stack-&gt;getTranslatorTextDomain())</code>
+      <code>$this-&gt;assertEquals('default', $stack-&gt;getTranslatorTextDomain())</code>
+      <code>$this-&gt;assertEquals('default', $stack-&gt;getTranslatorTextDomain())</code>
+      <code>$this-&gt;assertEquals('default', $stack-&gt;getTranslatorTextDomain())</code>
+      <code>$this-&gt;assertEquals('foo/index', $match-&gt;getMatchedRouteName())</code>
+      <code>$this-&gt;assertFalse($stack-&gt;hasTranslator())</code>
+      <code>$this-&gt;assertFalse($stack-&gt;hasTranslator())</code>
+      <code>$this-&gt;assertFalse($stack-&gt;isTranslatorEnabled())</code>
+      <code>$this-&gt;assertInstanceOf(TranslatorAwareInterface::class, $stack)</code>
+      <code>$this-&gt;assertNotNull($match)</code>
+      <code>$this-&gt;assertNull($stack-&gt;getTranslator())</code>
+      <code>$this-&gt;assertNull($stack-&gt;getTranslator())</code>
+      <code>$this-&gt;assertTrue($stack-&gt;hasTranslator())</code>
+      <code>$this-&gt;assertTrue($stack-&gt;isTranslatorEnabled())</code>
+    </ReservedWord>
+    <UndefinedDocblockClass occurrences="1">
+      <code>$match</code>
+    </UndefinedDocblockClass>
+  </file>
+  <file src="test/TranslatorFactoryTest.php">
+    <MissingParamType occurrences="3">
+      <code>$config</code>
+      <code>$expected</code>
+      <code>$expected</code>
+    </MissingParamType>
+    <MissingReturnType occurrences="11">
+      <code>expectedTranslatorProvider</code>
+      <code>invalidTranslatorConfig</code>
+      <code>setUp</code>
+      <code>testFactoryReturnsConfiguredTranslatorInjectedWithTranslatorPluginManagerWhenValidConfigIsPresent</code>
+      <code>testFactoryReturnsConfiguredTranslatorWhenValidConfigIsPresent</code>
+      <code>testFactoryReturnsMvcDecoratorDecoratingDefaultTranslatorWhenEmptyTranslatorConfigPresent</code>
+      <code>testFactoryReturnsMvcDecoratorDecoratingDefaultTranslatorWhenNoTranslatorConfigPresent</code>
+      <code>testFactoryReturnsMvcDecoratorDecoratingDummyTranslatorWhenTranslatorConfigIsFalse</code>
+      <code>testFactoryReturnsMvcTranslatorDecoratingDefaultTranslatorWhenNoConfigPresent</code>
+      <code>testFactoryReturnsMvcTranslatorDecoratingTranslatorInterfaceServiceWhenPresent</code>
+      <code>validTranslatorConfig</code>
+    </MissingReturnType>
+    <MixedArgument occurrences="10">
+      <code>$expected</code>
+      <code>$expected</code>
+      <code>$this-&gt;container-&gt;reveal()</code>
+      <code>$this-&gt;container-&gt;reveal()</code>
+      <code>$this-&gt;container-&gt;reveal()</code>
+      <code>$this-&gt;container-&gt;reveal()</code>
+      <code>$this-&gt;container-&gt;reveal()</code>
+      <code>$this-&gt;container-&gt;reveal()</code>
+      <code>$this-&gt;container-&gt;reveal()</code>
+      <code>$this-&gt;container-&gt;reveal()</code>
+    </MixedArgument>
+    <MixedArrayAccess occurrences="1">
+      <code>$config['locale']</code>
+    </MixedArrayAccess>
+    <RedundantConditionGivenDocblockType occurrences="8">
+      <code>assertInstanceOf</code>
+      <code>assertInstanceOf</code>
+      <code>assertInstanceOf</code>
+      <code>assertInstanceOf</code>
+      <code>assertInstanceOf</code>
+      <code>assertInstanceOf</code>
+      <code>assertInstanceOf</code>
+      <code>assertInstanceOf</code>
+    </RedundantConditionGivenDocblockType>
+    <ReservedWord occurrences="19">
+      <code>$this-&gt;assertEquals($config['locale'], $decorated-&gt;getLocale())</code>
+      <code>$this-&gt;assertEquals($config['locale'], $decorated-&gt;getLocale())</code>
+      <code>$this-&gt;assertInstanceOf($expected, $test-&gt;getTranslator())</code>
+      <code>$this-&gt;assertInstanceOf($expected, $test-&gt;getTranslator())</code>
+      <code>$this-&gt;assertInstanceOf($expected, $test-&gt;getTranslator())</code>
+      <code>$this-&gt;assertInstanceOf($expected, $test-&gt;getTranslator())</code>
+      <code>$this-&gt;assertInstanceOf(DummyTranslator::class, $test-&gt;getTranslator())</code>
+      <code>$this-&gt;assertInstanceOf(I18nTranslator::class, $decorated)</code>
+      <code>$this-&gt;assertInstanceOf(I18nTranslator::class, $decorated)</code>
+      <code>$this-&gt;assertInstanceOf(MvcTranslator::class, $test)</code>
+      <code>$this-&gt;assertInstanceOf(MvcTranslator::class, $test)</code>
+      <code>$this-&gt;assertInstanceOf(MvcTranslator::class, $test)</code>
+      <code>$this-&gt;assertInstanceOf(MvcTranslator::class, $test)</code>
+      <code>$this-&gt;assertInstanceOf(MvcTranslator::class, $test)</code>
+      <code>$this-&gt;assertInstanceOf(MvcTranslator::class, $test)</code>
+      <code>$this-&gt;assertInstanceOf(MvcTranslator::class, $test)</code>
+      <code>$this-&gt;assertInstanceOf(MvcTranslator::class, $test)</code>
+      <code>$this-&gt;assertTrue($decorated-&gt;isEventManagerEnabled())</code>
+      <code>$this-&gt;assertTrue($decorated-&gt;isEventManagerEnabled())</code>
+    </ReservedWord>
+    <UndefinedClass occurrences="1">
+      <code>Locale</code>
+    </UndefinedClass>
+  </file>
+  <file src="test/TranslatorTest.php">
+    <DeprecatedMethod occurrences="1">
+      <code>setLocale</code>
+    </DeprecatedMethod>
+    <MissingReturnType occurrences="4">
+      <code>testCanProxyToComposedTranslatorMethods</code>
+      <code>testCanRetrieveComposedTranslator</code>
+      <code>testIsAValidatorTranslator</code>
+      <code>testIsAnI18nTranslator</code>
+    </MissingReturnType>
+    <MixedMethodCall occurrences="2">
+      <code>method</code>
+      <code>with</code>
+    </MixedMethodCall>
+    <PossiblyUndefinedMethod occurrences="1">
+      <code>expects</code>
+    </PossiblyUndefinedMethod>
+    <ReservedWord occurrences="2">
+      <code>$this-&gt;assertInstanceOf(TranslatorInterface::class, $this-&gt;translator)</code>
+      <code>$this-&gt;assertInstanceOf(TranslatorInterface::class, $this-&gt;translator)</code>
+    </ReservedWord>
+  </file>
+</files>

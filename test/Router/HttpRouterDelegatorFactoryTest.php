@@ -12,13 +12,19 @@ use Interop\Container\ContainerInterface;
 use Laminas\I18n\Translator\TranslatorInterface;
 use Laminas\Mvc\I18n\Router\HttpRouterDelegatorFactory;
 use Laminas\Mvc\I18n\Router\TranslatorAwareTreeRouteStack;
+use Laminas\Router\RouteInterface;
 use Laminas\ServiceManager\ServiceManager;
 use PHPUnit\Framework\TestCase;
 use Prophecy\PhpUnit\ProphecyTrait;
+use Prophecy\Prophecy\ObjectProphecy;
 
 class HttpRouterDelegatorFactoryTest extends TestCase
 {
+
     use ProphecyTrait;
+
+    /** @var ObjectProphecy */
+    protected $container;
 
     public function setUp(): void
     {
@@ -31,7 +37,7 @@ class HttpRouterDelegatorFactoryTest extends TestCase
     public function testFactoryReturnsRouterUntouchedIfNotATranslatorAwareTreeRouteStack()
     {
         $router = (object) [];
-        $callback = function () use ($router) {
+        $callback = function () use ($router): object {
             return $router;
         };
 
@@ -47,7 +53,7 @@ class HttpRouterDelegatorFactoryTest extends TestCase
     {
         $router = $this->prophesize(TranslatorAwareTreeRouteStack::class);
         $router->setTranslatorEnabled(false)->shouldBeCalled();
-        $callback = function () use ($router) {
+        $callback = function () use ($router): RouteInterface {
             return $router->reveal();
         };
 
@@ -71,7 +77,7 @@ class HttpRouterDelegatorFactoryTest extends TestCase
         $router->setTranslatorEnabled(false)->shouldNotBeCalled();
         $router->setTranslator($translator)->shouldBeCalled();
 
-        $callback = function () use ($router) {
+        $callback = function () use ($router): RouteInterface {
             return $router->reveal();
         };
 
@@ -88,7 +94,7 @@ class HttpRouterDelegatorFactoryTest extends TestCase
         ));
     }
 
-    public function testFactoryInjectsTranslatorInterfaceIntoRouterWhenPresentInContainer()
+    public function testFactoryInjectsTranslatorInterfaceIntoRouterWhenPresentInContainer(): void
     {
         $translator = $this->prophesize(TranslatorInterface::class)->reveal();
 
@@ -96,7 +102,7 @@ class HttpRouterDelegatorFactoryTest extends TestCase
         $router->setTranslatorEnabled(false)->shouldNotBeCalled();
         $router->setTranslator($translator)->shouldBeCalled();
 
-        $callback = function () use ($router) {
+        $callback = function () use ($router): RouteInterface {
             return $router->reveal();
         };
 

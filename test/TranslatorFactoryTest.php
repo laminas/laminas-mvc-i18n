@@ -8,6 +8,7 @@
 
 namespace LaminasTest\Mvc\I18n;
 
+use ArrayAccess;
 use ArrayObject;
 use Interop\Container\ContainerInterface;
 use Laminas\I18n\Translator\LoaderPluginManager;
@@ -21,10 +22,15 @@ use Locale;
 use PHPUnit\Framework\TestCase;
 use Prophecy\Argument;
 use Prophecy\PhpUnit\ProphecyTrait;
+use Prophecy\Prophecy\ObjectProphecy;
+use Traversable;
 
 class TranslatorFactoryTest extends TestCase
 {
     use ProphecyTrait;
+
+    /** @var ObjectProphecy */
+    protected $container;
 
     public function setUp(): void
     {
@@ -100,6 +106,8 @@ class TranslatorFactoryTest extends TestCase
     }
 
     /**
+     * @param class-string $expected
+     *
      * @dataProvider expectedTranslatorProvider
      */
     public function testFactoryReturnsMvcDecoratorDecoratingDefaultTranslatorWhenEmptyTranslatorConfigPresent($expected)
@@ -135,6 +143,11 @@ class TranslatorFactoryTest extends TestCase
     }
 
     /**
+     * @param array $config
+     * @param class-string $expected
+     *
+     * @return void
+     *
      * @dataProvider invalidTranslatorConfig
      */
     public function testFactoryReturnsMvcDecoratorDecoratingDefaultTranslatorWithInvalidTranslatorConfig(
@@ -153,6 +166,9 @@ class TranslatorFactoryTest extends TestCase
         $this->assertInstanceOf($expected, $test->getTranslator());
     }
 
+    /**
+     * @psalm-return array<non-empty-string,array{0:array<string,mixed>|ArrayAccess<string,mixed>}>
+     */
     public function validTranslatorConfig(): array
     {
         $locale = (Locale::getDefault() === 'en-US') ? 'de-DE' : Locale::getDefault();
@@ -196,6 +212,7 @@ class TranslatorFactoryTest extends TestCase
     }
 
     /**
+     * @param array<string,mixed>|ArrayAccess<string,mixed> $config
      * @requires extension intl
      * @dataProvider validTranslatorConfig
      */
