@@ -226,7 +226,7 @@
             </div>
 
             
-            <div class="col-4 text-sm-right">
+            <div class="col-4 text-right">
                 
                     
 
@@ -330,10 +330,8 @@ used in multiple contexts.</p>
 arguments provided to it unchanged.</p>
 <p>As an example, calling:</p>
 <pre class="highlight"><code class="language-php">$translator-&gt;translate($message);</code></pre>
-
 <p>will return <code>$message</code>, and</p>
 <pre class="highlight"><code class="language-php">$translator-&gt;translatePlural($singular, $plural, $number);</code></pre>
-
 <p>will return <code>$singular</code> when <code>$number</code> is <code>1</code>, and <code>$plural</code> otherwise.</p>
 <h2 id="mvctranslator-and-translatorfactory">MvcTranslator and TranslatorFactory</h2>
 <p>The component defines the <code>MvcTranslator</code> service, which is aliased to the
@@ -347,7 +345,6 @@ your own classes with a translator instance:</p>
 <pre class="highlight"><code class="language-php">function ($container) {
     return new YourServiceClass($container-&gt;get('MvcTranslator'));
 }</code></pre>
-
 <p>The <code>TranslatorFactory</code> will do the following:</p>
 <ul>
 <li>If a <code>Laminas\I18n\Translator\TranslatorInterface</code> service is registered, it will
@@ -510,6 +507,7 @@ and, if so:</p>
         </ul>
     </div>
 
+                    
                 
             </div>
         </div>
@@ -582,7 +580,7 @@ and, if so:</p>
                         <p>
                             <!--Built with love by the Laminas team with the help of our
                             <a href="https://github.com/laminas/laminas-mvc-i18n/graphs/contributors">contributors</a>.<br>-->
-                            &copy; 2020 <a href="https://getlaminas.org/">Laminas Project</a> a Series of LF Projects, LLC.
+                            &copy; 2021 <a href="https://getlaminas.org/">Laminas Project</a> a Series of LF Projects, LLC.
                         </p>
                     </div>
                 </div>
