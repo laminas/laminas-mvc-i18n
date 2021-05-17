@@ -1,30 +1,13 @@
 {
     "name": "laminas/laminas-mvc-i18n",
     "description": "Integration between laminas-mvc and laminas-i18n",
-    "license": "BSD-3-Clause",
     "keywords": [
         "laminas",
         "mvc",
         "i18n"
     ],
     "homepage": "https://laminas.dev",
-    "support": {
-        "docs": "https://docs.laminas.dev/laminas-mvc-i18n/",
-        "issues": "https://github.com/laminas/laminas-mvc-i18n/issues",
-        "source": "https://github.com/laminas/laminas-mvc-i18n",
-        "rss": "https://github.com/laminas/laminas-mvc-i18n/releases.atom",
-        "chat": "https://laminas.dev/chat",
-        "forum": "https://discourse.laminas.dev"
-    },
-    "config": {
-        "sort-packages": true
-    },
-    "extra": {
-        "laminas": {
-            "component": "Laminas\\Mvc\\I18n",
-            "config-provider": "Laminas\\Mvc\\I18n\\ConfigProvider"
-        }
-    },
+    "license": "BSD-3-Clause",
     "require": {
         "php": "^7.3 || ~8.0.0",
         "container-interop/container-interop": "^1.1",
@@ -35,6 +18,13 @@
         "laminas/laminas-validator": "^2.14",
         "laminas/laminas-zendframework-bridge": "^1.2"
     },
+    "replace": {
+        "zendframework/zend-mvc-i18n": "^1.1.1"
+    },
+    "conflict": {
+        "laminas/laminas-mvc": "<3.0.0",
+        "phpspec/prophecy": "<1.8.0"
+    },
     "require-dev": {
         "laminas/laminas-coding-standard": "~1.0.0",
         "phpspec/prophecy-phpunit": "^2.0",
@@ -42,12 +32,17 @@
         "psalm/plugin-phpunit": "^0.15.1",
         "vimeo/psalm": "^4.7"
     },
-    "conflict": {
-        "laminas/laminas-mvc": "<3.0.0",
-        "phpspec/prophecy": "<1.8.0"
-    },
     "suggest": {
         "laminas/laminas-cache": "To enable caching of translation strings"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laminas": {
+            "component": "Laminas\\Mvc\\I18n",
+            "config-provider": "Laminas\\Mvc\\I18n\\ConfigProvider"
+        }
     },
     "autoload": {
         "psr-4": {
@@ -71,7 +66,12 @@
         "test": "phpunit --colors=always",
         "test-coverage": "phpunit --colors=always --coverage-clover clover.xml"
     },
-    "replace": {
-        "zendframework/zend-mvc-i18n": "^1.1.1"
+    "support": {
+        "issues": "https://github.com/laminas/laminas-mvc-i18n/issues",
+        "forum": "https://discourse.laminas.dev",
+        "chat": "https://laminas.dev/chat",
+        "source": "https://github.com/laminas/laminas-mvc-i18n",
+        "docs": "https://docs.laminas.dev/laminas-mvc-i18n/",
+        "rss": "https://github.com/laminas/laminas-mvc-i18n/releases.atom"
     }
 }
