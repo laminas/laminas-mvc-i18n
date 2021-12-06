@@ -26,14 +26,13 @@
         }
     },
     "require": {
-        "php": "^7.3 || ~8.0.0",
+        "php": "^7.3 || ~8.0.0 || ~8.1.0",
         "container-interop/container-interop": "^1.1",
         "laminas/laminas-i18n": "^2.11",
         "laminas/laminas-router": "^3.0",
         "laminas/laminas-servicemanager": "^3.6",
         "laminas/laminas-stdlib": "^3.3",
-        "laminas/laminas-validator": "^2.14",
-        "laminas/laminas-zendframework-bridge": "^1.2"
+        "laminas/laminas-validator": "^2.14"
     },
     "require-dev": {
         "laminas/laminas-coding-standard": "~1.0.0",
@@ -44,7 +43,8 @@
     },
     "conflict": {
         "laminas/laminas-mvc": "<3.0.0",
-        "phpspec/prophecy": "<1.8.0"
+        "phpspec/prophecy": "<1.8.0",
+        "zendframework/zend-mvc-i18n": "*"
     },
     "suggest": {
         "laminas/laminas-cache": "To enable caching of translation strings"
@@ -70,8 +70,5 @@
         "static-analysis": "psalm --shepherd --stats",
         "test": "phpunit --colors=always",
         "test-coverage": "phpunit --colors=always --coverage-clover clover.xml"
-    },
-    "replace": {
-        "zendframework/zend-mvc-i18n": "^1.1.1"
     }
 }
