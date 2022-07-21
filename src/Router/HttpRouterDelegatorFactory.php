@@ -1,9 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Laminas\Mvc\I18n\Router;
+
+// phpcs:disable WebimpressCodingStandard.PHP.CorrectClassNameCase
 
 use Interop\Container\ContainerInterface;
 use Laminas\I18n\Translator\TranslatorInterface;
+use Laminas\Router\RouteStackInterface;
 use Laminas\ServiceManager\DelegatorFactoryInterface;
 use Laminas\ServiceManager\ServiceLocatorInterface;
 
@@ -20,13 +25,11 @@ class HttpRouterDelegatorFactory implements DelegatorFactoryInterface
      *
      * Otherwise, we disable translation in the instance before returning it.
      *
-     * @param ContainerInterface $container
      * @param string $name
-     * @param callable $callback
-     * @param null|arry $options
-     * @return \Laminas\Router\RouteStackInterface|TranslatorAwareTreeRouteStack
+     * @param null|array $options
+     * @return RouteStackInterface|TranslatorAwareTreeRouteStack
      */
-    public function __invoke(ContainerInterface $container, $name, callable $callback, array $options = null)
+    public function __invoke(ContainerInterface $container, $name, callable $callback, ?array $options = null)
     {
         $router = $callback();
 
@@ -52,11 +55,10 @@ class HttpRouterDelegatorFactory implements DelegatorFactoryInterface
     /**
      * laminas-servicemanager v2 compabibility
      *
-     * @param ServiceLocatorInterface $container
      * @param string $name
      * @param string $requestedName
      * @param callable $callback
-     * @return \Laminas\Router\RouteStackInterface|TranslatorAwareTreeRouteStack
+     * @return RouteStackInterface|TranslatorAwareTreeRouteStack
      */
     public function createDelegatorWithName(ServiceLocatorInterface $container, $name, $requestedName, $callback)
     {

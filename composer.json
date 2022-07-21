@@ -33,6 +33,7 @@
     },
     "require": {
         "php": "^7.4 || ~8.0.0 || ~8.1.0",
+        "ext-intl": "*",
         "container-interop/container-interop": "^1.1",
         "laminas/laminas-i18n": "^2.13.0",
         "laminas/laminas-router": "^3.5.0",

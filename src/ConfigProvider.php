@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Laminas\Mvc\I18n;
 
 use Laminas\Router\Http\TreeRouteStack;
@@ -26,17 +28,17 @@ class ConfigProvider
     public function getDependencyConfig()
     {
         return [
-            'aliases' => [
+            'aliases'    => [
                 'MvcTranslator' => Translator::class,
 
                 // Legacy Zend Framework aliases
-                \Zend\Mvc\I18n\Translator::class => Translator::class,
+                'Zend\Mvc\I18n\Translator' => Translator::class,
             ],
             'delegators' => [
-                'HttpRouter' => [ Router\HttpRouterDelegatorFactory::class ],
-                TreeRouteStack::class => [ Router\HttpRouterDelegatorFactory::class ],
+                'HttpRouter'          => [Router\HttpRouterDelegatorFactory::class],
+                TreeRouteStack::class => [Router\HttpRouterDelegatorFactory::class],
             ],
-            'factories' => [
+            'factories'  => [
                 Translator::class => TranslatorFactory::class,
             ],
         ];
