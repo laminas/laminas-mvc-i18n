@@ -7,10 +7,6 @@ namespace Laminas\Mvc\I18n;
 use Laminas\I18n\Translator\TranslatorInterface as I18nTranslatorInterface;
 use Laminas\Validator\Translator\TranslatorInterface as ValidatorTranslatorInterface;
 
-use function call_user_func_array;
-use function method_exists;
-use function sprintf;
-
 class Translator implements
     I18nTranslatorInterface,
     ValidatorTranslatorInterface
