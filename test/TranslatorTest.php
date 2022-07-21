@@ -36,12 +36,4 @@ class TranslatorTest extends TestCase
     {
         $this->assertSame($this->i18nTranslator, $this->translator->getTranslator());
     }
-
-    public function testCanProxyToComposedTranslatorMethods()
-    {
-        $this->i18nTranslator->expects($this->once())
-            ->method('setLocale')
-            ->with($this->equalTo('en_US'));
-        $this->translator->setLocale('en_US');
-    }
 }
