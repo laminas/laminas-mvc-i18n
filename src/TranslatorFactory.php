@@ -1,16 +1,23 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Laminas\Mvc\I18n;
+
+// phpcs:disable WebimpressCodingStandard.PHP.CorrectClassNameCase
 
 use Interop\Container\ContainerInterface;
 use Laminas\I18n\Translator\Translator as I18nTranslator;
 use Laminas\I18n\Translator\TranslatorInterface;
-use Laminas\Mvc\I18n\DummyTranslator;
 use Laminas\Mvc\I18n\Translator as MvcTranslator;
 use Laminas\ServiceManager\FactoryInterface;
 use Laminas\ServiceManager\ServiceLocatorInterface;
 use Laminas\ServiceManager\ServiceManager;
 use Traversable;
+
+use function array_key_exists;
+use function extension_loaded;
+use function is_array;
 
 /**
  * Overrides the translator factory from the i18n component in order to
@@ -19,12 +26,10 @@ use Traversable;
 class TranslatorFactory implements FactoryInterface
 {
     /**
-     * @param  ContainerInterface $container
-     * @param  string $name
-     * @param  null|array $options
+     * @param  string $requestedName
      * @return MvcTranslator
      */
-    public function __invoke(ContainerInterface $container, $name, array $options = null)
+    public function __invoke(ContainerInterface $container, $requestedName, ?array $options = null)
     {
         // Assume that if a user has registered a service for the
         // TranslatorInterface, it must be valid
@@ -40,12 +45,11 @@ class TranslatorFactory implements FactoryInterface
      *
      * For use with laminas-servicemanager v2; proxies to __invoke().
      *
-     * @param ServiceLocatorInterface $container
      * @return MvcTranslator
      */
-    public function createService(ServiceLocatorInterface $container)
+    public function createService(ServiceLocatorInterface $serviceLocator)
     {
-        return $this($container, MvcTranslator::class);
+        return $this($serviceLocator, MvcTranslator::class);
     }
 
     /**
@@ -60,7 +64,6 @@ class TranslatorFactory implements FactoryInterface
      *   ext/intl is not loaded.
      * - returns an MvcTranslator decorating an empty I18nTranslator instance.
      *
-     * @param ContainerInterface $container
      * @return MvcTranslator
      */
     private function marshalTranslator(ContainerInterface $container)
@@ -90,8 +93,7 @@ class TranslatorFactory implements FactoryInterface
      *   instance.
      * - null in all other cases, including absence of a configuration service.
      *
-     * @param ContainerInterface $container
-     * @return null|MvcTranslator
+     * @return void|MvcTranslator
      */
     private function marshalTranslatorFromConfig(ContainerInterface $container)
     {
