@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Laminas\Mvc\I18n;
 
 use Laminas\I18n\Translator\TranslatorInterface as I18nTranslatorInterface;
@@ -9,14 +11,9 @@ class Translator implements
     I18nTranslatorInterface,
     ValidatorTranslatorInterface
 {
-    /**
-     * @var I18nTranslatorInterface
-     */
+    /** @var I18nTranslatorInterface */
     protected $translator;
 
-    /**
-     * @param I18nTranslatorInterface $translator
-     */
     public function __construct(I18nTranslatorInterface $translator)
     {
         $this->translator = $translator;

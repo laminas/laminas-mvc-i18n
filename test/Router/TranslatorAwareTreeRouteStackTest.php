@@ -1,8 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace LaminasTest\Mvc\I18n\Router;
 
-use Laminas\Http\Request as Request;
+use Laminas\Http\Request;
 use Laminas\I18n\Translator\Translator;
 use Laminas\I18n\Translator\TranslatorAwareInterface;
 use Laminas\Mvc\I18n\Router\TranslatorAwareTreeRouteStack;
@@ -12,20 +14,13 @@ use PHPUnit\Framework\TestCase;
 
 class TranslatorAwareTreeRouteStackTest extends TestCase
 {
-    /**
-     * @var string
-     */
-    protected $testFilesDir;
+    /** @var string */
+    private $testFilesDir;
 
-    /**
-     * @var Translator
-     */
-    protected $translator;
+    private Translator $translator;
 
-    /**
-     * @var array
-     */
-    protected $fooRoute;
+    /** @var array */
+    private array $fooRoute;
 
     public function setUp(): void
     {
@@ -36,13 +31,13 @@ class TranslatorAwareTreeRouteStackTest extends TestCase
         $this->translator->addTranslationFile('phparray', $this->testFilesDir . '/tokens.de.php', 'route', 'de');
 
         $this->fooRoute = [
-            'type' => 'Segment',
-            'options' => [
+            'type'         => 'Segment',
+            'options'      => [
                 'route' => '/:locale',
             ],
             'child_routes' => [
                 'index' => [
-                    'type' => 'Segment',
+                    'type'    => 'Segment',
                     'options' => [
                         'route' => '/{homepage}',
                     ],
@@ -51,7 +46,7 @@ class TranslatorAwareTreeRouteStackTest extends TestCase
         ];
     }
 
-    public function testTranslatorAwareInterfaceImplementation()
+    public function testTranslatorAwareInterfaceImplementation(): void
     {
         $stack = new TranslatorAwareTreeRouteStack();
         $this->assertInstanceOf(TranslatorAwareInterface::class, $stack);
@@ -88,7 +83,7 @@ class TranslatorAwareTreeRouteStackTest extends TestCase
         $this->assertFalse($stack->isTranslatorEnabled());
     }
 
-    public function testTranslatorIsPassedThroughMatchMethod()
+    public function testTranslatorIsPassedThroughMatchMethod(): void
     {
         $translator = new Translator();
         $request    = new Request();
@@ -108,7 +103,7 @@ class TranslatorAwareTreeRouteStackTest extends TestCase
         $stack->match($request, null, ['translator' => $translator]);
     }
 
-    public function testTranslatorIsPassedThroughAssembleMethod()
+    public function testTranslatorIsPassedThroughAssembleMethod(): void
     {
         $translator = new Translator();
         $uri        = new HttpUri();
@@ -127,7 +122,7 @@ class TranslatorAwareTreeRouteStackTest extends TestCase
         $stack->assemble([], ['name' => 'test', 'translator' => $translator, 'uri' => $uri]);
     }
 
-    public function testAssembleRouteWithParameterLocale()
+    public function testAssembleRouteWithParameterLocale(): void
     {
         $stack = new TranslatorAwareTreeRouteStack();
         $stack->setTranslator($this->translator, 'route');
@@ -140,7 +135,7 @@ class TranslatorAwareTreeRouteStackTest extends TestCase
         $this->assertEquals('/en/homepage', $stack->assemble(['locale' => 'en'], ['name' => 'foo/index']));
     }
 
-    public function testMatchRouteWithParameterLocale()
+    public function testMatchRouteWithParameterLocale(): void
     {
         $stack = new TranslatorAwareTreeRouteStack();
         $stack->setTranslator($this->translator, 'route');
@@ -157,7 +152,7 @@ class TranslatorAwareTreeRouteStackTest extends TestCase
         $this->assertEquals('foo/index', $match->getMatchedRouteName());
     }
 
-    public function testFactoryWillInjectTextDomainIfPresent()
+    public function testFactoryWillInjectTextDomainIfPresent(): void
     {
         $config = ['translator_text_domain' => 'routing'];
 

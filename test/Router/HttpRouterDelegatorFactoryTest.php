@@ -1,6 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace LaminasTest\Mvc\I18n\Router;
+
+// phpcs:disable WebimpressCodingStandard.PHP.CorrectClassNameCase
 
 use Interop\Container\ContainerInterface;
 use Laminas\I18n\Translator\TranslatorInterface;
@@ -14,7 +18,6 @@ use Prophecy\Prophecy\ObjectProphecy;
 
 class HttpRouterDelegatorFactoryTest extends TestCase
 {
-
     use ProphecyTrait;
 
     /** @var ObjectProphecy */
@@ -28,9 +31,9 @@ class HttpRouterDelegatorFactoryTest extends TestCase
         $this->container->willImplement(ContainerInterface::class);
     }
 
-    public function testFactoryReturnsRouterUntouchedIfNotATranslatorAwareTreeRouteStack()
+    public function testFactoryReturnsRouterUntouchedIfNotATranslatorAwareTreeRouteStack(): void
     {
-        $router = (object) [];
+        $router   = (object) [];
         $callback = function () use ($router): object {
             return $router;
         };
@@ -43,7 +46,7 @@ class HttpRouterDelegatorFactoryTest extends TestCase
         ));
     }
 
-    public function testFactoryReturnsTranslatorAwareRouterWithTranslationsDisabledWhenNoTranslatorInContainer()
+    public function testFactoryReturnsTranslatorAwareRouterWithTranslationsDisabledWhenNoTranslatorInContainer(): void
     {
         $router = $this->prophesize(TranslatorAwareTreeRouteStack::class);
         $router->setTranslatorEnabled(false)->shouldBeCalled();
@@ -53,7 +56,7 @@ class HttpRouterDelegatorFactoryTest extends TestCase
 
         $this->container->has('MvcTranslator')->willReturn(false);
         $this->container->has(TranslatorInterface::class)->willReturn(false);
-        $this->container->has(\Zend\I18n\Translator\TranslatorInterface::class)->willReturn(false);
+        $this->container->has('Zend\I18n\Translator\TranslatorInterface')->willReturn(false);
 
         $factory = new HttpRouterDelegatorFactory();
         $this->assertSame($router->reveal(), $factory(
@@ -63,7 +66,7 @@ class HttpRouterDelegatorFactoryTest extends TestCase
         ));
     }
 
-    public function testFactoryInjectsMvcTranslatorIntoRouterWhenPresentInContainer()
+    public function testFactoryInjectsMvcTranslatorIntoRouterWhenPresentInContainer(): void
     {
         $translator = $this->prophesize(TranslatorInterface::class)->reveal();
 
@@ -78,7 +81,7 @@ class HttpRouterDelegatorFactoryTest extends TestCase
         $this->container->has('MvcTranslator')->willReturn(true);
         $this->container->get('MvcTranslator')->willReturn($translator);
         $this->container->has(TranslatorInterface::class)->shouldNotBeCalled();
-        $this->container->has(\Zend\I18n\Translator\TranslatorInterface::class)->shouldNotBeCalled();
+        $this->container->has('Zend\I18n\Translator\TranslatorInterface')->shouldNotBeCalled();
 
         $factory = new HttpRouterDelegatorFactory();
         $this->assertSame($router->reveal(), $factory(
