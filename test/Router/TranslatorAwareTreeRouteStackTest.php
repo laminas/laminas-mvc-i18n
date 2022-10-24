@@ -14,8 +14,7 @@ use PHPUnit\Framework\TestCase;
 
 class TranslatorAwareTreeRouteStackTest extends TestCase
 {
-    /** @var string */
-    private $testFilesDir;
+    private string $testFilesDir;
 
     private Translator $translator;
 

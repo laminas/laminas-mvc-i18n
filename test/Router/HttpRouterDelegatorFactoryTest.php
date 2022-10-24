@@ -34,9 +34,7 @@ class HttpRouterDelegatorFactoryTest extends TestCase
     public function testFactoryReturnsRouterUntouchedIfNotATranslatorAwareTreeRouteStack(): void
     {
         $router   = (object) [];
-        $callback = function () use ($router): object {
-            return $router;
-        };
+        $callback = static fn(): object => $router;
 
         $factory = new HttpRouterDelegatorFactory();
         $this->assertSame($router, $factory(
@@ -50,9 +48,7 @@ class HttpRouterDelegatorFactoryTest extends TestCase
     {
         $router = $this->prophesize(TranslatorAwareTreeRouteStack::class);
         $router->setTranslatorEnabled(false)->shouldBeCalled();
-        $callback = function () use ($router): RouteInterface {
-            return $router->reveal();
-        };
+        $callback = static fn(): RouteInterface => $router->reveal();
 
         $this->container->has('MvcTranslator')->willReturn(false);
         $this->container->has(TranslatorInterface::class)->willReturn(false);
@@ -74,9 +70,7 @@ class HttpRouterDelegatorFactoryTest extends TestCase
         $router->setTranslatorEnabled(false)->shouldNotBeCalled();
         $router->setTranslator($translator)->shouldBeCalled();
 
-        $callback = function () use ($router): RouteInterface {
-            return $router->reveal();
-        };
+        $callback = static fn(): RouteInterface => $router->reveal();
 
         $this->container->has('MvcTranslator')->willReturn(true);
         $this->container->get('MvcTranslator')->willReturn($translator);
@@ -99,9 +93,7 @@ class HttpRouterDelegatorFactoryTest extends TestCase
         $router->setTranslatorEnabled(false)->shouldNotBeCalled();
         $router->setTranslator($translator)->shouldBeCalled();
 
-        $callback = function () use ($router): RouteInterface {
-            return $router->reveal();
-        };
+        $callback = static fn(): RouteInterface => $router->reveal();
 
         $this->container->has('MvcTranslator')->willReturn(false);
         $this->container->has(TranslatorInterface::class)->willReturn(true);
