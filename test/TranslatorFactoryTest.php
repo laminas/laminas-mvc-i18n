@@ -21,7 +21,6 @@ use PHPUnit\Framework\TestCase;
 use Prophecy\Argument;
 use Prophecy\PhpUnit\ProphecyTrait;
 use Prophecy\Prophecy\ObjectProphecy;
-use Traversable;
 
 use function extension_loaded;
 
@@ -189,7 +188,7 @@ class TranslatorFactoryTest extends TestCase
     /**
      * @requires extension intl
      * @dataProvider validTranslatorConfig
-     * @param array|Traversable $config
+     * @param array<string,mixed>|ArrayAccess<string,mixed> $config
      */
     public function testFactoryReturnsConfiguredTranslatorWhenValidConfigIsPresent($config): void
     {
@@ -211,7 +210,9 @@ class TranslatorFactoryTest extends TestCase
 
         $decorated = $test->getTranslator();
         $this->assertInstanceOf(I18nTranslator::class, $decorated);
-        $this->assertEquals($config['locale'], $decorated->getLocale());
+        $locale = $config['locale'] ?? null;
+        self::assertIsString($locale);
+        $this->assertEquals($locale, $decorated->getLocale());
         $this->assertTrue($decorated->isEventManagerEnabled());
     }
 
