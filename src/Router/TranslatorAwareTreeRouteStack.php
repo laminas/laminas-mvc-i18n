@@ -47,7 +47,7 @@ class TranslatorAwareTreeRouteStack extends TreeRouteStack implements Translator
      * Overrides TreeRouteStack::factory() in order to inject the configured
      * translator_text_domain, if present, prior to returning the instance.
      *
-     * @param array $options
+     * @param iterable $options
      * @return self
      */
     public static function factory($options = [])

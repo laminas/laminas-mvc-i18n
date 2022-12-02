@@ -41,7 +41,7 @@ class Translator implements
      *
      * @param string $singular
      * @param string $plural
-     * @param string $number
+     * @param int $number
      * @param string $textDomain
      * @param string $locale
      * @return string
