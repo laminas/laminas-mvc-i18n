@@ -37,7 +37,7 @@
         "container-interop/container-interop": "^1.1",
         "laminas/laminas-i18n": "^2.13.0",
         "laminas/laminas-router": "^3.5.0",
-        "laminas/laminas-servicemanager": "^3.15.1",
+        "laminas/laminas-servicemanager": "^3.15.1 || ^4.0.0",
         "laminas/laminas-stdlib": "^3.10.1",
         "laminas/laminas-validator": "^2.19.0"
     },
