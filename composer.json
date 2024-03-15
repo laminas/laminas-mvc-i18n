@@ -45,7 +45,7 @@
         "laminas/laminas-coding-standard": "~2.5.0",
         "phpspec/prophecy-phpunit": "^2.0.2",
         "phpunit/phpunit": "^9.6.13",
-        "psalm/plugin-phpunit": "^0.18.4",
+        "psalm/plugin-phpunit": "^0.19.0",
         "vimeo/psalm": "^5.15"
     },
     "conflict": {
