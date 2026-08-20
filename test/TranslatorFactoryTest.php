@@ -51,7 +51,7 @@ class TranslatorFactoryTest extends TestCase
     }
 
     /** @return array<string, array{0: class-string}> */
-    public function expectedTranslatorProvider(): array
+    public static function expectedTranslatorProvider(): array
     {
         return extension_loaded('intl')
             ? ['intl-loaded' => [I18nTranslator::class]]
@@ -129,7 +129,7 @@ class TranslatorFactoryTest extends TestCase
     }
 
     /** @return array<string, array{0: array<string, mixed>, 1: class-string}> */
-    public function invalidTranslatorConfig(): array
+    public static function invalidTranslatorConfig(): array
     {
         $expectedTranslator = extension_loaded('intl')
             ? I18nTranslator::class
@@ -171,7 +171,7 @@ class TranslatorFactoryTest extends TestCase
     /**
      * @psalm-return array<non-empty-string,array{0:array<string,mixed>|ArrayAccess<string,mixed>}>
      */
-    public function validTranslatorConfig(): array
+    public static function validTranslatorConfig(): array
     {
         $locale = Locale::getDefault() === 'en-US' ? 'de-DE' : Locale::getDefault();
         $config = [
