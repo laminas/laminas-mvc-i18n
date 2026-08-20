@@ -17,6 +17,7 @@ use Laminas\Mvc\I18n\Translator as MvcTranslator;
 use Laminas\Mvc\I18n\TranslatorFactory;
 use Laminas\ServiceManager\ServiceManager;
 use Locale;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use Prophecy\Argument;
 use Prophecy\PhpUnit\ProphecyTrait;
@@ -59,9 +60,9 @@ class TranslatorFactoryTest extends TestCase
     }
 
     /**
-     * @dataProvider expectedTranslatorProvider
      * @param class-string $expected
      */
+    #[DataProvider('expectedTranslatorProvider')]
     public function testFactoryReturnsMvcTranslatorDecoratingDefaultTranslatorWhenNoConfigPresent(
         string $expected
     ): void {
@@ -77,9 +78,9 @@ class TranslatorFactoryTest extends TestCase
     }
 
     /**
-     * @dataProvider expectedTranslatorProvider
      * @param class-string $expected
      */
+    #[DataProvider('expectedTranslatorProvider')]
     public function testFactoryReturnsMvcDecoratorDecoratingDefaultTranslatorWhenNoTranslatorConfigPresent(
         string $expected
     ): void {
@@ -111,8 +112,8 @@ class TranslatorFactoryTest extends TestCase
 
     /**
      * @param class-string $expected
-     * @dataProvider expectedTranslatorProvider
      */
+    #[DataProvider('expectedTranslatorProvider')]
     public function testFactoryReturnsMvcDecoratorDecoratingDefaultTranslatorWhenEmptyTranslatorConfigPresent(
         string $expected
     ): void {
@@ -150,8 +151,8 @@ class TranslatorFactoryTest extends TestCase
     /**
      * @param array<string, mixed> $config
      * @param class-string $expected
-     * @dataProvider invalidTranslatorConfig
      */
+    #[DataProvider('invalidTranslatorConfig')]
     public function testFactoryReturnsMvcDecoratorDecoratingDefaultTranslatorWithInvalidTranslatorConfig(
         $config,
         $expected
@@ -187,9 +188,9 @@ class TranslatorFactoryTest extends TestCase
 
     /**
      * @requires extension intl
-     * @dataProvider validTranslatorConfig
      * @param array<string,mixed>|ArrayAccess<string,mixed> $config
      */
+    #[DataProvider('validTranslatorConfig')]
     public function testFactoryReturnsConfiguredTranslatorWhenValidConfigIsPresent($config): void
     {
         $this->container->has(TranslatorInterface::class)->willReturn(false);
@@ -219,8 +220,8 @@ class TranslatorFactoryTest extends TestCase
     /**
      * @param array<string,mixed>|ArrayAccess<string,mixed> $config
      * @requires extension intl
-     * @dataProvider validTranslatorConfig
      */
+    #[DataProvider('validTranslatorConfig')]
     public function testFactoryReturnsConfiguredTranslatorInjectedWithTranslatorPluginManagerWhenValidConfigIsPresent(
         $config
     ): void {

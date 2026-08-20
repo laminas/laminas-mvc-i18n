@@ -8,6 +8,7 @@ use Laminas\I18n\Translator\Translator as I18nTranslator;
 use Laminas\I18n\Translator\TranslatorInterface;
 use Laminas\Mvc\I18n\Translator;
 use PHPUnit\Framework\MockObject\MockObject;
+use PHPUnit\Framework\MockObject\Stub;
 use PHPUnit\Framework\TestCase;
 
 class TranslatorTest extends TestCase
@@ -15,12 +16,12 @@ class TranslatorTest extends TestCase
     /** @var Translator */
     protected $translator;
 
-    /** @var TranslatorInterface|MockObject */
+    /** @var TranslatorInterface&Stub */
     protected $i18nTranslator;
 
     public function setUp(): void
     {
-        $this->i18nTranslator = $this->createMock(I18nTranslator::class);
+        $this->i18nTranslator = self::createStub(I18nTranslator::class);
         $this->translator     = new Translator($this->i18nTranslator);
     }
 
@@ -41,9 +42,10 @@ class TranslatorTest extends TestCase
 
     public function testCanProxyToComposedTranslatorMethods()
     {
-        $this->i18nTranslator->expects($this->once())
+        $translator = $this->createMock(I18nTranslator::class);
+        $translator->expects($this->once())
             ->method('setLocale')
             ->with($this->equalTo('en_US'));
-        $this->translator->setLocale('en_US');
+        $translator->setLocale('en_US');
     }
 }

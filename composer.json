@@ -45,7 +45,7 @@
     "require-dev": {
         "laminas/laminas-coding-standard": "~2.5.0",
         "phpspec/prophecy-phpunit": "^2.5.0",
-        "phpunit/phpunit": "^10.5.64",
+        "phpunit/phpunit": "^12.5.33",
         "vimeo/psalm": "^6.16.1"
     },
     "conflict": {
