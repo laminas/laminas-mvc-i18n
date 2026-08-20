@@ -1,125 +1,327 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="4.24.0@06dd975cb55d36af80f242561738f16c5f58264f">
-  <file src="src/Router/HttpRouterDelegatorFactory.php">
-    <DeprecatedInterface occurrences="1">
-      <code>HttpRouterDelegatorFactory</code>
+<files psalm-version="6.16.1@f1f5de594dc76faf8784e02d3dc4716c91c6f6ac">
+  <file src="src/ConfigProvider.php">
+    <ClassMustBeFinal>
+      <code><![CDATA[ConfigProvider]]></code>
+    </ClassMustBeFinal>
+  </file>
+  <file src="src/DummyTranslator.php">
+    <ClassMustBeFinal>
+      <code><![CDATA[DummyTranslator]]></code>
+    </ClassMustBeFinal>
+    <DeprecatedInterface>
+      <code><![CDATA[DummyTranslator]]></code>
     </DeprecatedInterface>
-    <MixedArgument occurrences="1">
-      <code>$container-&gt;get('MvcTranslator')</code>
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function translate($message, $textDomain = 'default', $locale = null)]]></code>
+      <code><![CDATA[public function translatePlural($singular, $plural, $number, $textDomain = 'default', $locale = null)]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Exception/BadMethodCallException.php">
+    <ClassMustBeFinal>
+      <code><![CDATA[BadMethodCallException]]></code>
+    </ClassMustBeFinal>
+  </file>
+  <file src="src/Module.php">
+    <ClassMustBeFinal>
+      <code><![CDATA[Module]]></code>
+    </ClassMustBeFinal>
+    <UnusedClass>
+      <code><![CDATA[Module]]></code>
+    </UnusedClass>
+  </file>
+  <file src="src/Router/HttpRouterDelegatorFactory.php">
+    <ClassMustBeFinal>
+      <code><![CDATA[HttpRouterDelegatorFactory]]></code>
+    </ClassMustBeFinal>
+    <DeprecatedInterface>
+      <code><![CDATA[HttpRouterDelegatorFactory]]></code>
+    </DeprecatedInterface>
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function __invoke(ContainerInterface $container, $name, callable $callback, ?array $options = null)]]></code>
+      <code><![CDATA[public function createDelegatorWithName(ServiceLocatorInterface $container, $name, $requestedName, $callback)]]></code>
+    </MissingOverrideAttribute>
+    <MixedArgument>
+      <code><![CDATA[$container->get('MvcTranslator')]]></code>
     </MixedArgument>
-    <MixedInferredReturnType occurrences="1">
-      <code>RouteStackInterface|TranslatorAwareTreeRouteStack</code>
-    </MixedInferredReturnType>
-    <MixedReturnStatement occurrences="1">
-      <code>$router</code>
+    <MixedReturnStatement>
+      <code><![CDATA[$router]]></code>
     </MixedReturnStatement>
-    <ParamNameMismatch occurrences="1">
-      <code>$container</code>
+    <ParamNameMismatch>
+      <code><![CDATA[$container]]></code>
     </ParamNameMismatch>
   </file>
   <file src="src/Router/TranslatorAwareTreeRouteStack.php">
-    <DocblockTypeContradiction occurrences="1">
-      <code>$flatOptions instanceof Traversable</code>
-    </DocblockTypeContradiction>
-    <LessSpecificImplementedReturnType occurrences="4">
-      <code>RouteMatch|null</code>
-      <code>TreeRouteStack</code>
-      <code>TreeRouteStack</code>
-      <code>self</code>
+    <ClassMustBeFinal>
+      <code><![CDATA[TranslatorAwareTreeRouteStack]]></code>
+    </ClassMustBeFinal>
+    <DeprecatedInterface>
+      <code><![CDATA[?Translator]]></code>
+      <code><![CDATA[Translator]]></code>
+      <code><![CDATA[Translator]]></code>
+      <code><![CDATA[TranslatorAwareTreeRouteStack]]></code>
+    </DeprecatedInterface>
+    <LessSpecificImplementedReturnType>
+      <code><![CDATA[TreeRouteStack]]></code>
+      <code><![CDATA[TreeRouteStack]]></code>
+      <code><![CDATA[self]]></code>
     </LessSpecificImplementedReturnType>
-    <LessSpecificReturnStatement occurrences="1">
-      <code>$instance</code>
+    <LessSpecificReturnStatement>
+      <code><![CDATA[$instance]]></code>
     </LessSpecificReturnStatement>
-    <MixedArgument occurrences="1">
-      <code>$flatOptions</code>
-    </MixedArgument>
-    <MoreSpecificImplementedParamType occurrences="1">
-      <code>$options</code>
-    </MoreSpecificImplementedParamType>
-    <MoreSpecificReturnType occurrences="1">
-      <code>self</code>
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function assemble(array $params = [], array $options = [])]]></code>
+      <code><![CDATA[public function getTranslator()]]></code>
+      <code><![CDATA[public function getTranslatorTextDomain()]]></code>
+      <code><![CDATA[public function hasTranslator()]]></code>
+      <code><![CDATA[public function isTranslatorEnabled()]]></code>
+      <code><![CDATA[public function match(Request $request, $pathOffset = null, array $options = [])]]></code>
+      <code><![CDATA[public function setTranslator(?Translator $translator = null, $textDomain = null)]]></code>
+      <code><![CDATA[public function setTranslatorEnabled($enabled = true)]]></code>
+      <code><![CDATA[public function setTranslatorTextDomain($textDomain = 'default')]]></code>
+      <code><![CDATA[public static function factory($options = [])]]></code>
+    </MissingOverrideAttribute>
+    <MoreSpecificReturnType>
+      <code><![CDATA[self]]></code>
     </MoreSpecificReturnType>
-    <PossiblyNullPropertyAssignmentValue occurrences="1">
-      <code>$translator</code>
+    <PossiblyNullPropertyAssignmentValue>
+      <code><![CDATA[$translator]]></code>
     </PossiblyNullPropertyAssignmentValue>
-    <PropertyNotSetInConstructor occurrences="3">
-      <code>$translator</code>
-      <code>TranslatorAwareTreeRouteStack</code>
-      <code>TranslatorAwareTreeRouteStack</code>
+    <PropertyNotSetInConstructor>
+      <code><![CDATA[$translator]]></code>
+      <code><![CDATA[TranslatorAwareTreeRouteStack]]></code>
+      <code><![CDATA[TranslatorAwareTreeRouteStack]]></code>
     </PropertyNotSetInConstructor>
-    <RedundantCastGivenDocblockType occurrences="2">
-      <code>(bool) $enabled</code>
-      <code>(string) $textDomain</code>
+    <RedundantCastGivenDocblockType>
+      <code><![CDATA[(bool) $enabled]]></code>
+      <code><![CDATA[(string) $textDomain]]></code>
     </RedundantCastGivenDocblockType>
-    <RedundantConditionGivenDocblockType occurrences="1">
-      <code>$this-&gt;translator !== null</code>
+    <RedundantConditionGivenDocblockType>
+      <code><![CDATA[$this->translator !== null]]></code>
     </RedundantConditionGivenDocblockType>
-    <UndefinedMethod occurrences="1">
-      <code>setTranslatorTextDomain</code>
-    </UndefinedMethod>
+    <UndefinedInterfaceMethod>
+      <code><![CDATA[setTranslatorTextDomain]]></code>
+    </UndefinedInterfaceMethod>
   </file>
   <file src="src/Translator.php">
-    <ImplementedParamTypeMismatch occurrences="1">
-      <code>$number</code>
-    </ImplementedParamTypeMismatch>
-    <InvalidScalarArgument occurrences="1">
-      <code>$number</code>
-    </InvalidScalarArgument>
+    <ClassMustBeFinal>
+      <code><![CDATA[Translator]]></code>
+    </ClassMustBeFinal>
+    <DeprecatedInterface>
+      <code><![CDATA[I18nTranslatorInterface]]></code>
+      <code><![CDATA[Translator]]></code>
+      <code><![CDATA[Translator]]></code>
+      <code><![CDATA[protected]]></code>
+    </DeprecatedInterface>
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function translate($message, $textDomain = 'default', $locale = null)]]></code>
+      <code><![CDATA[public function translatePlural($singular, $plural, $number, $textDomain = 'default', $locale = null)]]></code>
+    </MissingOverrideAttribute>
+    <PossiblyUnusedReturnValue>
+      <code><![CDATA[mixed]]></code>
+    </PossiblyUnusedReturnValue>
   </file>
   <file src="src/TranslatorFactory.php">
-    <DeprecatedInterface occurrences="1">
-      <code>TranslatorFactory</code>
+    <ClassMustBeFinal>
+      <code><![CDATA[TranslatorFactory]]></code>
+    </ClassMustBeFinal>
+    <DeprecatedInterface>
+      <code><![CDATA[TranslatorFactory]]></code>
     </DeprecatedInterface>
-    <MixedArgument occurrences="2">
-      <code>$config</code>
-      <code>$container-&gt;get('TranslatorPluginManager')</code>
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function __invoke(ContainerInterface $container, $requestedName, ?array $options = null)]]></code>
+      <code><![CDATA[public function createService(ServiceLocatorInterface $serviceLocator)]]></code>
+    </MissingOverrideAttribute>
+    <MixedArgument>
+      <code><![CDATA[$config]]></code>
+      <code><![CDATA[$container->get('TranslatorPluginManager')]]></code>
     </MixedArgument>
-    <MixedAssignment occurrences="1">
-      <code>$config</code>
+    <MixedAssignment>
+      <code><![CDATA[$config]]></code>
     </MixedAssignment>
   </file>
   <file src="test/Router/HttpRouterDelegatorFactoryTest.php">
-    <MixedArgument occurrences="4">
-      <code>$this-&gt;container-&gt;reveal()</code>
-      <code>$this-&gt;container-&gt;reveal()</code>
-      <code>$this-&gt;container-&gt;reveal()</code>
-      <code>$this-&gt;container-&gt;reveal()</code>
-    </MixedArgument>
+    <ArgumentTypeCoercion>
+      <code><![CDATA[$this->container->reveal()]]></code>
+      <code><![CDATA[$this->container->reveal()]]></code>
+      <code><![CDATA[$this->container->reveal()]]></code>
+      <code><![CDATA[$this->container->reveal()]]></code>
+    </ArgumentTypeCoercion>
+    <ClassMustBeFinal>
+      <code><![CDATA[HttpRouterDelegatorFactoryTest]]></code>
+    </ClassMustBeFinal>
+    <DeprecatedInterface>
+      <code><![CDATA[$this->prophesize(TranslatorInterface::class)]]></code>
+      <code><![CDATA[$this->prophesize(TranslatorInterface::class)]]></code>
+    </DeprecatedInterface>
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function setUp(): void]]></code>
+    </MissingOverrideAttribute>
+    <MixedMethodCall>
+      <code><![CDATA[shouldBeCalled]]></code>
+      <code><![CDATA[shouldBeCalled]]></code>
+      <code><![CDATA[shouldBeCalled]]></code>
+      <code><![CDATA[shouldNotBeCalled]]></code>
+      <code><![CDATA[shouldNotBeCalled]]></code>
+      <code><![CDATA[shouldNotBeCalled]]></code>
+      <code><![CDATA[shouldNotBeCalled]]></code>
+      <code><![CDATA[willReturn]]></code>
+      <code><![CDATA[willReturn]]></code>
+      <code><![CDATA[willReturn]]></code>
+      <code><![CDATA[willReturn]]></code>
+      <code><![CDATA[willReturn]]></code>
+      <code><![CDATA[willReturn]]></code>
+      <code><![CDATA[willReturn]]></code>
+      <code><![CDATA[willReturn]]></code>
+    </MixedMethodCall>
+    <UndefinedMagicMethod>
+      <code><![CDATA[get]]></code>
+      <code><![CDATA[get]]></code>
+      <code><![CDATA[has]]></code>
+      <code><![CDATA[has]]></code>
+      <code><![CDATA[has]]></code>
+      <code><![CDATA[has]]></code>
+      <code><![CDATA[has]]></code>
+      <code><![CDATA[has]]></code>
+      <code><![CDATA[has]]></code>
+      <code><![CDATA[has]]></code>
+      <code><![CDATA[setTranslator]]></code>
+      <code><![CDATA[setTranslator]]></code>
+      <code><![CDATA[setTranslatorEnabled]]></code>
+      <code><![CDATA[setTranslatorEnabled]]></code>
+      <code><![CDATA[setTranslatorEnabled]]></code>
+    </UndefinedMagicMethod>
+  </file>
+  <file src="test/Router/TranslatorAwareTreeRouteStackTest.php">
+    <ClassMustBeFinal>
+      <code><![CDATA[TranslatorAwareTreeRouteStackTest]]></code>
+    </ClassMustBeFinal>
+    <DeprecatedInterface>
+      <code><![CDATA[$this->createMock(RouteInterface::class)]]></code>
+      <code><![CDATA[$this->createMock(RouteInterface::class)]]></code>
+    </DeprecatedInterface>
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function setUp(): void]]></code>
+    </MissingOverrideAttribute>
   </file>
   <file src="test/TranslatorFactoryTest.php">
-    <MixedArgument occurrences="8">
-      <code>$this-&gt;container-&gt;reveal()</code>
-      <code>$this-&gt;container-&gt;reveal()</code>
-      <code>$this-&gt;container-&gt;reveal()</code>
-      <code>$this-&gt;container-&gt;reveal()</code>
-      <code>$this-&gt;container-&gt;reveal()</code>
-      <code>$this-&gt;container-&gt;reveal()</code>
-      <code>$this-&gt;container-&gt;reveal()</code>
-      <code>$this-&gt;container-&gt;reveal()</code>
-    </MixedArgument>
-    <PossiblyInvalidArgument occurrences="1">
-      <code>testFactoryReturnsConfiguredTranslatorWhenValidConfigIsPresent</code>
-    </PossiblyInvalidArgument>
-    <UndefinedInterfaceMethod occurrences="1">
-      <code>$config</code>
-    </UndefinedInterfaceMethod>
+    <ArgumentTypeCoercion>
+      <code><![CDATA[$this->container->reveal()]]></code>
+      <code><![CDATA[$this->container->reveal()]]></code>
+      <code><![CDATA[$this->container->reveal()]]></code>
+      <code><![CDATA[$this->container->reveal()]]></code>
+      <code><![CDATA[$this->container->reveal()]]></code>
+      <code><![CDATA[$this->container->reveal()]]></code>
+      <code><![CDATA[$this->container->reveal()]]></code>
+      <code><![CDATA[$this->container->reveal()]]></code>
+    </ArgumentTypeCoercion>
+    <ClassMustBeFinal>
+      <code><![CDATA[TranslatorFactoryTest]]></code>
+    </ClassMustBeFinal>
+    <DeprecatedInterface>
+      <code><![CDATA[$this->prophesize(TranslatorInterface::class)]]></code>
+    </DeprecatedInterface>
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function setUp(): void]]></code>
+    </MissingOverrideAttribute>
+    <MixedMethodCall>
+      <code><![CDATA[shouldBeCalled]]></code>
+      <code><![CDATA[shouldBeCalled]]></code>
+      <code><![CDATA[willReturn]]></code>
+      <code><![CDATA[willReturn]]></code>
+      <code><![CDATA[willReturn]]></code>
+      <code><![CDATA[willReturn]]></code>
+      <code><![CDATA[willReturn]]></code>
+      <code><![CDATA[willReturn]]></code>
+      <code><![CDATA[willReturn]]></code>
+      <code><![CDATA[willReturn]]></code>
+      <code><![CDATA[willReturn]]></code>
+      <code><![CDATA[willReturn]]></code>
+      <code><![CDATA[willReturn]]></code>
+      <code><![CDATA[willReturn]]></code>
+      <code><![CDATA[willReturn]]></code>
+      <code><![CDATA[willReturn]]></code>
+      <code><![CDATA[willReturn]]></code>
+      <code><![CDATA[willReturn]]></code>
+      <code><![CDATA[willReturn]]></code>
+      <code><![CDATA[willReturn]]></code>
+      <code><![CDATA[willReturn]]></code>
+      <code><![CDATA[willReturn]]></code>
+      <code><![CDATA[willReturn]]></code>
+      <code><![CDATA[willReturn]]></code>
+      <code><![CDATA[willReturn]]></code>
+      <code><![CDATA[willReturn]]></code>
+      <code><![CDATA[willReturn]]></code>
+      <code><![CDATA[willReturn]]></code>
+      <code><![CDATA[willReturn]]></code>
+      <code><![CDATA[willReturn]]></code>
+      <code><![CDATA[willReturn]]></code>
+      <code><![CDATA[willReturn]]></code>
+      <code><![CDATA[willReturn]]></code>
+      <code><![CDATA[willReturn]]></code>
+    </MixedMethodCall>
+    <UndefinedMagicMethod>
+      <code><![CDATA[get]]></code>
+      <code><![CDATA[get]]></code>
+      <code><![CDATA[get]]></code>
+      <code><![CDATA[get]]></code>
+      <code><![CDATA[get]]></code>
+      <code><![CDATA[get]]></code>
+      <code><![CDATA[get]]></code>
+      <code><![CDATA[get]]></code>
+      <code><![CDATA[has]]></code>
+      <code><![CDATA[has]]></code>
+      <code><![CDATA[has]]></code>
+      <code><![CDATA[has]]></code>
+      <code><![CDATA[has]]></code>
+      <code><![CDATA[has]]></code>
+      <code><![CDATA[has]]></code>
+      <code><![CDATA[has]]></code>
+      <code><![CDATA[has]]></code>
+      <code><![CDATA[has]]></code>
+      <code><![CDATA[has]]></code>
+      <code><![CDATA[has]]></code>
+      <code><![CDATA[has]]></code>
+      <code><![CDATA[has]]></code>
+      <code><![CDATA[has]]></code>
+      <code><![CDATA[has]]></code>
+      <code><![CDATA[has]]></code>
+      <code><![CDATA[has]]></code>
+      <code><![CDATA[has]]></code>
+      <code><![CDATA[has]]></code>
+      <code><![CDATA[has]]></code>
+      <code><![CDATA[has]]></code>
+      <code><![CDATA[has]]></code>
+      <code><![CDATA[has]]></code>
+      <code><![CDATA[setService]]></code>
+      <code><![CDATA[setService]]></code>
+    </UndefinedMagicMethod>
   </file>
   <file src="test/TranslatorTest.php">
-    <DeprecatedMethod occurrences="1">
-      <code>setLocale</code>
-    </DeprecatedMethod>
-    <MissingReturnType occurrences="4">
-      <code>testCanProxyToComposedTranslatorMethods</code>
-      <code>testCanRetrieveComposedTranslator</code>
-      <code>testIsAValidatorTranslator</code>
-      <code>testIsAnI18nTranslator</code>
+    <ClassMustBeFinal>
+      <code><![CDATA[TranslatorTest]]></code>
+    </ClassMustBeFinal>
+    <DeprecatedInterface>
+      <code><![CDATA[TranslatorInterface|MockObject]]></code>
+    </DeprecatedInterface>
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function setUp(): void]]></code>
+    </MissingOverrideAttribute>
+    <MissingReturnType>
+      <code><![CDATA[testCanProxyToComposedTranslatorMethods]]></code>
+      <code><![CDATA[testCanRetrieveComposedTranslator]]></code>
+      <code><![CDATA[testIsAValidatorTranslator]]></code>
+      <code><![CDATA[testIsAnI18nTranslator]]></code>
     </MissingReturnType>
-    <MixedMethodCall occurrences="2">
-      <code>method</code>
-      <code>with</code>
+    <MixedMethodCall>
+      <code><![CDATA[method]]></code>
+      <code><![CDATA[with]]></code>
     </MixedMethodCall>
-    <PossiblyUndefinedMethod occurrences="1">
-      <code>expects</code>
+    <PossiblyUndefinedMethod>
+      <code><![CDATA[expects]]></code>
     </PossiblyUndefinedMethod>
+    <UndefinedMagicMethod>
+      <code><![CDATA[setLocale]]></code>
+    </UndefinedMagicMethod>
   </file>
 </files>
