@@ -19,7 +19,7 @@
     "config": {
         "sort-packages": true,
         "platform": {
-            "php": "8.3.99"
+            "php": "8.2.99"
         },
         "allow-plugins": {
             "dealerdirect/phpcodesniffer-composer-installer": true
@@ -32,7 +32,7 @@
         }
     },
     "require": {
-        "php": "~8.3.0 || ~8.4.0 || ~8.5.0",
+        "php": "~8.2.0 || ~8.3.0 || ~8.4.0 || ~8.5.0",
         "ext-intl": "*",
         "container-interop/container-interop": "^1.1",
         "laminas/laminas-http": "^2.23.0",
@@ -45,7 +45,7 @@
     "require-dev": {
         "laminas/laminas-coding-standard": "~2.5.0",
         "phpspec/prophecy-phpunit": "^2.5.0",
-        "phpunit/phpunit": "^12.5.33",
+        "phpunit/phpunit": "^11.5.56",
         "vimeo/psalm": "^6.16.1"
     },
     "conflict": {
